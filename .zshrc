@@ -99,7 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # Compilation flags
-export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -107,7 +107,6 @@ export ARCHFLAGS="-arch x86_64"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Enable vim mode
@@ -121,6 +120,8 @@ alias cl="clear"
 alias ex="exit"
 alias pacs="sudo pacman -S"
 alias pacr="sudo pacman -Rs"
+alias yays="yay -S"
+alias zshconfig="vim ~/.zshrc"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

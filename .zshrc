@@ -118,10 +118,10 @@ export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft
 # aliases
 alias cl="clear"
 alias ex="exit"
-alias pacs="sudo pacman -S"
-alias pacr="sudo pacman -Rs"
+alias pacs="sudo pacman -S" # <--- replacing pacman -S command
+alias pacr="sudo pacman -Rs" # <--- replacing pacman -Rs command
 alias yays="yay -S"
-alias zshconfig="vim ~/.zshrc"
+alias zshconf="vim ~/.zshrc"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

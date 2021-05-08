@@ -120,8 +120,8 @@ alias cl="clear"
 alias ex="exit"
 alias pacs="sudo pacman -S" # <--- replacing pacman -S command
 alias pacr="sudo pacman -Rs" # <--- replacing pacman -Rs command
-alias yays="yay -S"
-alias zshconf="vim ~/.zshrc"
+alias yays="yay -S"  # <--- replacing yay -S command
+alias zshconf="vim ~/.zshrc" # easy comfiguration :)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

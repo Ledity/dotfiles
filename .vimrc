@@ -1,5 +1,7 @@
 syntax on
 colorscheme koehler
+set t_Co=256
+autocmd WinEnter,FileType asm colorscheme elflord
 
 set showcmd
 

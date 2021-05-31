@@ -1,3 +1,4 @@
+pfetch
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -119,6 +120,7 @@ export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft
 alias cl="clear"
 alias ex="exit"
 alias sl="ls"
+alias cm="cmatrix -bC yellow"
 alias pacs="sudo pacman -S" # replacing pacman -S command
 alias pacr="sudo pacman -Rs" # replacing pacman -Rs command
 alias yays="yay -S"  # replacing yay -S command
@@ -128,3 +130,4 @@ alias sd="shutdown now"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH=$HOME/bin:$PATH

@@ -10,7 +10,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/andrew/.oh-my-zsh"
+export ZSH="/home/ledity/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -81,7 +81,7 @@ POWERLEVEL9K_MODE="nerdfont-complete"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting)
+# plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -120,14 +120,19 @@ export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft
 alias cl="clear"
 alias ex="exit"
 alias sl="ls"
-alias cm="cmatrix -bC yellow"
-alias pacs="sudo pacman -S" # replacing pacman -S command
-alias pacr="sudo pacman -Rs" # replacing pacman -Rs command
-alias yays="yay -S"  # replacing yay -S command
+alias cm="cmatrix -b"
+alias pacs="sudo dnf install"
+alias pacr="sudo dnf remove"
+alias pacu="sudo dnf update"
 alias zshconf="vim ~/.zshrc"
 alias reb="reboot"
-alias sd="shutdown now"
+alias sdstart="systemctl start"
+alias sdstop="systemctl stop"
+alias sdstat="systemctl status"
+alias sdenab="systemctl enable"
+alias sddisab="systemctl disable"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH=$HOME/bin:$PATH
+source /home/ledity/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

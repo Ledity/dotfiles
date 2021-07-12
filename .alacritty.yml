@@ -160,7 +160,7 @@ colors:
     blue:       '#5454ff'
     magenta:    '#ff54ff'
     cyan:       '#54ffff'
-    white:      '#656565'
+    white:      '#ffffff'
 
       #black:      '#000000'
       #red:        '#b21818'
@@ -412,8 +412,8 @@ colors:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
+shell:
+  program: /bin/tmux
 #  args:
 #    - --login
 

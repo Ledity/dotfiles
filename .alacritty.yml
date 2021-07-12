@@ -160,7 +160,7 @@ colors:
     blue:       '#5454ff'
     magenta:    '#ff54ff'
     cyan:       '#54ffff'
-    white:      '#ffffff'
+    white:      '#ededed'
 
       #black:      '#000000'
       #red:        '#b21818'
@@ -173,13 +173,13 @@ colors:
 
   # Bright colors
   bright:
-    black:      '#686868'
-    red:        '#ff5454'
-    green:      '#54ff54'
-    yellow:     '#ffff54'
-    blue:       '#5454ff'
-    magenta:    '#ff54ff'
-    cyan:       '#54ffff'
+    black:      '#090909'
+    red:        '#ff0000'
+    green:      '#00ff00'
+    yellow:     '#ffff00'
+    blue:       '#0000ff'
+    magenta:    '#ff00ff'
+    cyan:       '#00ffff'
     white:      '#ffffff'
 
   # Dim colors

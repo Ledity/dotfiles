@@ -162,15 +162,6 @@ colors:
     cyan:       '#54ffff'
     white:      '#ededed'
 
-      #black:      '#000000'
-      #red:        '#b21818'
-      #green:      '#18b218'
-      #yellow:     '#b26818'
-      #blue:       '#1818b2'
-      #magenta:    '#b218b2'
-      #cyan:       '#18b2b2'
-      #white:      '#b2b2b2'
-
   # Bright colors
   bright:
     black:      '#090909'
@@ -187,11 +178,12 @@ colors:
     black:      '#181818'
     red:        '#650000'
     green:      '#006500'
-    yellow:     '#655e00'
+    yellow:     '#656500'
     blue:       '#000065'
     magenta:    '#650065'
     cyan:       '#006565'
     white:      '#656565'
+
 
     # Bright and dim foreground colors
     #
@@ -350,7 +342,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-#background_opacity: 1.0
+# background_opacity: 0.95
 
 #selection:
   # This string contains all characters that are used as separators for
@@ -413,7 +405,7 @@ colors:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /bin/tmux
+  program: /home/ledity/.dotfiles/start_tmux/start_tmux.sh
 #  args:
 #    - --login
 

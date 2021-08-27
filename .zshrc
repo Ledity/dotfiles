@@ -10,7 +10,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/ledity/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -118,9 +118,12 @@ bindkey -v
 # aliases
 alias sl="ls"
 alias cm="cmatrix -b"
-alias pacs="sudo dnf install"
-alias pacr="sudo dnf remove"
-alias pacu="sudo dnf update"
+alias pacs="sudo pacman -S"
+alias yays="yay -S"
+alias pacr="sudo pacman -Rs"
+alias pacu="sudo pacman -Syyu"
+alias pacq="sudo pacman -Q"
+alias pacf="sudo pacman -F"
 alias zshconf="vim ~/.zshrc"
 alias reb="reboot"
 alias sdstart="systemctl start"

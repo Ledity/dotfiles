@@ -10,6 +10,18 @@ Mode Set By User=false
 Time=2021,8,26,13,2,44.61
 URL=file:///home/ledity/.dotfiles/loloswitcher/config.ini
 
+[file:///home/ledity/sas]
+Bookmarks=
+Checksum=354d3f16efce940d285925567a9640d97f4f0bf2
+Encoding=UTF-8
+Highlighting=None
+Highlighting Set By User=false
+Indentation Mode=normal
+Mode=Normal
+Mode Set By User=false
+Time=2021,8,30,13,48,22.016
+URL=file:///home/ledity/sas
+
 [file:///home/ledity/sh.sh]
 Bookmarks=
 Checksum=1546990ae114c3cbfaf0071a52856fc01e7946a7

@@ -1,2 +1,15 @@
 [$Version]
 update_info=spectacle_clipboard.upd:clipboard-settings-change,spectacle_newConfig.upd:spectacle-new-config
+
+[GuiConfig]
+captureMode=5
+window-position=199,509
+
+[KFileDialog Settings]
+Recent Files[$e]=file:$HOME/Images/мета героев.png,file:///tmp/asdasdad.png
+Recent URLs[$e]=file:///tmp/,file:$HOME/Images/,file:$HOME/
+detailViewIconSize=16
+
+[Save]
+lastSaveAsLocation=file:///tmp/asdasdad.png
+lastSaveLocation=file:///tmp/asdasdad.png

@@ -9,14 +9,18 @@
   <Global>
     <ExtraData>
       <ExtraDataItem name="GUI/Details/Elements" value="general,system,preview,display,storage,audio,network,usb,sharedFolders,description"/>
-      <ExtraDataItem name="GUI/GroupDefinitions/" value="n=GLOBAL"/>
-      <ExtraDataItem name="GUI/LastItemSelected" value="n=GLOBAL"/>
-      <ExtraDataItem name="GUI/LastWindowPosition" value="0,27,1440,899,max"/>
-      <ExtraDataItem name="GUI/SplitterSizes" value="494,945"/>
+      <ExtraDataItem name="GUI/GroupDefinitions/" value="n=GLOBAL,m=64aa342e-f244-41a3-a1f1-c638f89258dc"/>
+      <ExtraDataItem name="GUI/LastItemSelected" value="m=FreeBSD"/>
+      <ExtraDataItem name="GUI/LastWindowPosition" value="605,61,835,899"/>
+      <ExtraDataItem name="GUI/RecentFolderCD" value="/home/ledity/VirtualBox VMs/ISO's"/>
+      <ExtraDataItem name="GUI/RecentListCD" value="/home/ledity/VirtualBox VMs/ISO's/FreeBSD-12.1-RELEASE-amd64-bootonly.iso"/>
+      <ExtraDataItem name="GUI/SplitterSizes" value="286,548"/>
       <ExtraDataItem name="GUI/Toolbar" value="false"/>
       <ExtraDataItem name="GUI/Tools/LastItemsSelected" value="Welcome,Details"/>
     </ExtraData>
-    <MachineRegistry/>
+    <MachineRegistry>
+      <MachineEntry uuid="{64aa342e-f244-41a3-a1f1-c638f89258dc}" src="/home/ledity/VirtualBox VMs/FreeBSD/FreeBSD.vbox"/>
+    </MachineRegistry>
     <NetserviceRegistry>
       <DHCPServers>
         <DHCPServer networkName="HostInterfaceNetworking-vboxnet0" IPAddress="192.168.56.100" networkMask="255.255.255.0" lowerIP="192.168.56.101" upperIP="192.168.56.254" enabled="1"/>

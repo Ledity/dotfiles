@@ -17,10 +17,24 @@ Name_4=4
 Number=4
 Rows=2
 
+[Effect-PresentWindows]
+BorderActivateAll=9
+
+[ModifierOnlyShortcuts]
+Meta=
+
 [Plugins]
+kwin-rectangleEnabled=false
 kwin4_effect_squashEnabled=false
 magiclampEnabled=true
+minimizeallEnabled=false
+sticky-window-snappingEnabled=true
+synchronizeskipswitcherEnabled=false
+videowallEnabled=false
 wobblywindowsEnabled=true
+
+[TabBox]
+BorderActivate=9
 
 [Windows]
 RollOverDesktops=false
@@ -30,4 +44,4 @@ BorderSize=None
 BorderSizeAuto=false
 ButtonsOnLeft=MSF
 library=org.kde.kwin.aurorae
-theme=__aurorae__svg__Qogir-dark-circle
+theme=__aurorae__svg__Aritim-Dark

@@ -1,2 +1,5 @@
 [$Version]
 update_info=kscreenlocker.upd:0.1-autolock
+
+[Greeter][Wallpaper][org.kde.image][General]
+Image=/home/ledity/.local/share/wallpapers/KDE Plasma QATAR SKIES 02.png

@@ -116,14 +116,11 @@ bindkey -v
 # export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
 
 # aliases
-alias sl="ls"
+alias ls="exa --color=always --group-directories-first"
+alias sl="exa --color=always --group-directories-first"
+alias la="exa -la --color=always --group-directories-first | less"
 alias cm="cmatrix -b"
-alias pacs="sudo pacman -S"
-alias yays="yay -S"
-alias pacr="sudo pacman -Rs"
-alias pacu="sudo pacman -Syyu"
-alias pacq="sudo pacman -Q"
-alias pacf="sudo pacman -F"
+alias pac="sudo aura"
 alias zshconf="vim ~/.zshrc"
 alias reb="reboot"
 alias sdstart="systemctl start"

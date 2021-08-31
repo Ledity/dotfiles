@@ -1,5 +1,6 @@
 # GIMP gimp-gradient-tool options
 
+(foreground (color-rgb 0.7607843279838562 0.7764706015586853 0.7921568751335144))
 (gradient "Основной в фоновый (RGB)")
 (brush-size 51)
 (brush-hardness 0.5)

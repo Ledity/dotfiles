@@ -5,7 +5,7 @@ tags = ["web", "term", "other", "docs", "music", "video", "games", "vbox"]
 layouts = ["MainAndVertStack", "LeftWiderRightStack", "EvenHorizontal", "CenterMain", "CenterMainBalanced", "Monocle"]
 scratchpad = []
 disable_current_tag_swap = false
-focus_behaviour = "ClickTo"
+focus_behaviour = "Sloppy"
 focus_new_windows = true
 
 [[keybind]]
@@ -104,6 +104,23 @@ key = "h"
 command = "FocusNextTag"
 modifier = ["modkey"]
 key = "l"
+
+[[keybind]]
+command = "RotateTag"
+modifier = ["modkey"]
+key = "r"
+
+[[keybind]]
+command = "IncreaseMainWidth"
+value = "5"
+modifier = ["modkey"]
+key = "i"
+
+[[keybind]]
+command = "DecreaseMainWidth"
+value = "5"
+modifier = ["modkey"]
+key = "u"
 
 [[keybind]]
 command = "FocusWorkspacePrevious"
@@ -261,13 +278,13 @@ key = "f"
 
 [[keybind]]
 command = "Execute"
-value = "qualqulate-qt"
+value = "qalculate-qt"
 modifier = ["modkey", "Shift"]
 key = "c"
 
 [[keybind]]
 command = "Execute"
-value = "leftwm-command 'SendWorkspaceToTag 0 2' && qalqulate-qt"
+value = "leftwm-command 'SendWorkspaceToTag 0 2' && qalculate-qt"
 modifier = ["modkey"]
 key = "c"
 

@@ -2,8 +2,11 @@
 inode/directory=pcmanfm-qt.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-39SQ80.desktop;
 
 [Default Applications]
 inode/directory=pcmanfm-qt.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
+application/x-ms-dos-executable;application/x-wine-extension-msp;application/x-msi;application/x-msdos-program=PortProton.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-39SQ80.desktop

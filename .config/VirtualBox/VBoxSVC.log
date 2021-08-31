@@ -1,90 +1,121 @@
-00:00:00.000247 main     VirtualBox XPCOM Server 6.1.26 r145957 linux.amd64 (Jul 29 2021 12:15:28) release log
-00:00:00.000250 main     Log opened 2021-08-26T20:07:56.495028000Z
-00:00:00.000251 main     Build Type: release
-00:00:00.000253 main     OS Product: Linux
-00:00:00.000254 main     OS Release: 5.13.12-arch1-1
-00:00:00.000255 main     OS Version: #1 SMP PREEMPT Wed, 18 Aug 2021 20:49:03 +0000
-00:00:00.000289 main     DMI Product Name: HN-WX9X
-00:00:00.000298 main     DMI Product Version: M1020
-00:00:00.000303 main     Firmware type: UEFI
-00:00:00.000551 main     Secure Boot: Disabled
-00:00:00.000615 main     Host RAM: 14931MB (14.5GB) total, 11755MB (11.4GB) available
-00:00:00.000619 main     Executable: /usr/lib/virtualbox/VBoxSVC
-00:00:00.000620 main     Process ID: 40739
-00:00:00.000620 main     Package type: LINUX_64BITS_GENERIC (OSE)
-00:00:00.003001 main     IPC socket path: /tmp/.vbox-ledity-ipc/ipcd
-00:00:00.109849 nspr-2   VirtualBox: object creation starts
-00:00:00.109979 nspr-2   Home directory: '/home/ledity/.config/VirtualBox'
-00:00:00.117726 nspr-2   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlan0: VBoxNetAdpCtl: ioctl failed: Operation not supported
-00:00:00.118275 nspr-2   HostDnsMonitor: initializing
-00:00:00.118539 nspr-2   NAT: resolv.conf: nameserver 192.168.194.93
-00:00:00.118566 nspr-2   HostDnsMonitor: updating information
-00:00:00.118603 nspr-2   HostDnsMonitor: old information
-00:00:00.118610 nspr-2     no server entries
-00:00:00.118616 nspr-2     no domain set
-00:00:00.118621 nspr-2     no search string entries
-00:00:00.118627 nspr-2   HostDnsMonitor: new information
-00:00:00.118632 nspr-2     server 1: 192.168.194.93
-00:00:00.118639 nspr-2     no domain set
-00:00:00.118644 nspr-2     no search string entries
-00:00:00.122021 nspr-2   VD: VDInit finished with VINF_SUCCESS
-00:00:00.122136 nspr-2   ERROR [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={027bc463-929c-40e8-bf16-fea557cd8e7e} aComponent={SystemPropertiesWrap} aText={Cannot determine default Guest Additions ISO location. Most likely they are not available}, preserve=false aResultDetail=0
-00:00:00.122667 nspr-2   VirtualBox: object created
-00:00:25.593041 createBase Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
-00:00:26.190906 nspr-4   Saving settings file "/home/ledity/VirtualBox VMs/sas/sas.vbox" with version "1.16-linux"
-00:00:26.194226 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:26.195197 nspr-2   Saving settings file "/home/ledity/VirtualBox VMs/sas/sas.vbox" with version "1.16-linux"
-00:00:26.197416 nspr-2   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
-00:00:26.202821 nspr-3   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
-00:00:26.206573 nspr-3   Saving settings file "/home/ledity/VirtualBox VMs/sas/sas.vbox" with version "1.16-linux"
-00:00:26.634639 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:26.937634 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:26.939030 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:28.321442 nspr-3   Launched VM: 2684415296 pid: 40772 (0x9f44) frontend: GUI/Qt name: sas
-00:00:28.402138 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:28.403582 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:28.697759 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:28.698741 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:29.442966 nspr-5   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:29.444381 nspr-6   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:29.444776 nspr-6   ERROR [COM]: aRC=VBOX_E_OBJECT_NOT_FOUND (0x80bb0001) aIID={70401eef-c8e9-466b-9660-45cb3e9979e4} aComponent={ExtPackManagerWrap} aText={No extension pack by the name 'Oracle VM VirtualBox Extension Pack' was found}, preserve=false aResultDetail=0
-00:00:29.518348 nspr-5   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:29.519920 nspr-6   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:29.553013 nspr-6   ERROR [COM]: aRC=VBOX_E_IPRT_ERROR (0x80bb0005) aIID={85632c68-b5bb-4316-a900-5eb28d3413df} aComponent={SessionMachine} aText={Saved screenshot data is not available (VERR_NOT_SUPPORTED)}, preserve=false aResultDetail=-37
-00:00:29.586968 nspr-5   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlan0: VBoxNetAdpCtl: ioctl failed: Operation not supported
-00:00:31.641669 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:31.676917 nspr-5   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:31.677923 nspr-5   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:32.405411 nspr-6   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:32.406926 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:00:59.471069 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:01:00.349012 nspr-4   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlan0: VBoxNetAdpCtl: ioctl failed: Operation not supported
-00:01:00.357365 nspr-4   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlan0: VBoxNetAdpCtl: ioctl failed: Operation not supported
-00:01:00.370655 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:01:00.371465 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:01:15.550618 nspr-5   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:01:15.552034 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:01:17.054770 nspr-6   Saving settings file "/home/ledity/VirtualBox VMs/sas/sas.vbox" with version "1.16-linux"
-00:01:17.143254 nspr-5   Saving settings file "/home/ledity/VirtualBox VMs/sas/sas.vbox" with version "1.16-linux"
-00:01:17.198418 nspr-6   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:01:17.199854 nspr-5   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:01:20.668970 nspr-3   Saving settings file "/home/ledity/VirtualBox VMs/sas/sas.vbox" with version "1.16-linux"
-00:01:20.718201 nspr-5   Saving settings file "/home/ledity/VirtualBox VMs/sas/sas.vbox" with version "1.16-linux"
-00:01:20.804172 nspr-7   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:01:20.805275 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:01:21.216439 nspr-6   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:01:21.217955 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={Could not load the Host USB Proxy service: VERR_NOT_FOUND}, preserve=true  aResultDetail=0
-00:01:27.542119 nspr-5   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
-00:01:29.308641 nspr-6   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
-00:01:29.323080 nspr-7   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
-00:01:29.327843 nspr-5   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
-00:01:29.341302 nspr-5   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
-00:01:29.348134 nspr-6   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
-00:01:29.352923 nspr-4   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
-00:01:29.358647 nspr-4   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
-00:01:34.870245 main     VirtualBox: object deletion starts
-00:01:34.870655 main     HostDnsMonitor: shutting down ...
-00:01:34.878663 main     HostDnsMonitor: shut down
-00:01:35.151762 Watcher  ERROR [COM]: aRC=E_ACCESSDENIED (0x80070005) aIID={d0a0163f-e254-4e5b-a1f2-011cf991c38d} aComponent={VirtualBoxWrap} aText={The object is not ready}, preserve=false aResultDetail=0
-00:01:39.878823 main     {00007f3bb4015160} HostPowerServiceLinux::~HostPowerServiceLinux: RTThreadWait() for 5000 ms failed with VERR_TIMEOUT
-00:01:39.879417 main     VirtualBox: object deleted
+00:00:00.000494 main     VirtualBox XPCOM Server 6.1.26 r145957 linux.amd64 (Jul 29 2021 12:15:28) release log
+00:00:00.000498 main     Log opened 2021-08-30T09:28:59.557404000Z
+00:00:00.000499 main     Build Type: release
+00:00:00.000503 main     OS Product: Linux
+00:00:00.000504 main     OS Release: 5.13.12-arch1-1
+00:00:00.000505 main     OS Version: #1 SMP PREEMPT Wed, 18 Aug 2021 20:49:03 +0000
+00:00:00.000543 main     DMI Product Name: HN-WX9X
+00:00:00.000553 main     DMI Product Version: M1020
+00:00:00.000560 main     Firmware type: UEFI
+00:00:00.000868 main     Secure Boot: Disabled
+00:00:00.000937 main     Host RAM: 14931MB (14.5GB) total, 9684MB (9.4GB) available
+00:00:00.000942 main     Executable: /usr/lib/virtualbox/VBoxSVC
+00:00:00.000943 main     Process ID: 89634
+00:00:00.000943 main     Package type: LINUX_64BITS_GENERIC (OSE)
+00:00:00.004476 main     IPC socket path: /tmp/.vbox-ledity-ipc/ipcd
+00:00:00.117034 nspr-2   VirtualBox: object creation starts
+00:00:00.117167 nspr-2   Home directory: '/home/ledity/.config/VirtualBox'
+00:00:00.117388 nspr-2   Loading settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:00:00.126776 nspr-2   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlan0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:00:00.127438 nspr-2   HostDnsMonitor: initializing
+00:00:00.127679 nspr-2   NAT: resolv.conf: nameserver 192.168.117.23
+00:00:00.127697 nspr-2   HostDnsMonitor: updating information
+00:00:00.127716 nspr-2   HostDnsMonitor: old information
+00:00:00.127722 nspr-2     no server entries
+00:00:00.127726 nspr-2     no domain set
+00:00:00.127731 nspr-2     no search string entries
+00:00:00.127735 nspr-2   HostDnsMonitor: new information
+00:00:00.127740 nspr-2     server 1: 192.168.117.23
+00:00:00.127745 nspr-2     no domain set
+00:00:00.127749 nspr-2     no search string entries
+00:00:00.131536 nspr-2   VD: VDInit finished with VINF_SUCCESS
+00:00:00.131651 nspr-2   ERROR [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={027bc463-929c-40e8-bf16-fea557cd8e7e} aComponent={SystemPropertiesWrap} aText={Cannot determine default Guest Additions ISO location. Most likely they are not available}, preserve=false aResultDetail=0
+00:00:00.132181 nspr-2   VirtualBox: object created
+00:01:22.700941 createBase Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:01:23.271667 nspr-2   Saving settings file "/home/ledity/VirtualBox VMs/FreeBSD/FreeBSD.vbox" with version "1.15-linux"
+00:01:23.274483 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:01:23.275669 nspr-2   Saving settings file "/home/ledity/VirtualBox VMs/FreeBSD/FreeBSD.vbox" with version "1.15-linux"
+00:01:23.278349 nspr-2   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:01:23.283448 nspr-2   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:01:23.287030 nspr-4   Saving settings file "/home/ledity/VirtualBox VMs/FreeBSD/FreeBSD.vbox" with version "1.15-linux"
+00:01:23.705362 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:01:24.030345 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:01:24.032069 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:10:38.567324 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:10:39.473911 nspr-4   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlan0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:10:39.483006 nspr-4   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlan0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:10:39.496111 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:10:39.496600 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:10:39.806309 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:10:39.807586 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:10:55.895374 nspr-2   Saving settings file "/home/ledity/VirtualBox VMs/FreeBSD/FreeBSD.vbox" with version "1.15-linux"
+00:10:56.035249 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:10:56.036230 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:14:19.196437 dns-monitor NAT: resolv.conf: nameserver 192.168.117.23
+00:14:19.196491 dns-monitor HostDnsMonitor: updating information
+00:14:19.196498 dns-monitor HostDnsMonitor: unchanged
+00:14:37.851135 dns-monitor NAT: resolv.conf: nameserver 192.168.117.23
+00:14:37.851177 dns-monitor HostDnsMonitor: updating information
+00:14:37.851185 dns-monitor HostDnsMonitor: unchanged
+00:18:58.683058 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:18:59.657110 nspr-3   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlan0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:18:59.665373 nspr-3   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlan0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:18:59.677056 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:18:59.677766 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:18:59.970079 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:18:59.971030 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:21:04.943212 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:21:05.913403 nspr-3   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlan0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:21:05.921716 nspr-3   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlan0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:21:05.932271 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:21:05.932722 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:21:06.212904 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:21:06.213794 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:21:31.830956 nspr-2   Saving settings file "/home/ledity/VirtualBox VMs/FreeBSD/FreeBSD.vbox" with version "1.17-linux"
+00:21:32.037039 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:21:32.038609 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:22:07.817941 nspr-4   Launched VM: 3019909696 pid: 91004 (0x1637c) frontend: GUI/Qt name: FreeBSD
+00:22:07.888959 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:22:07.889961 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:22:08.254561 nspr-5   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:22:08.255530 nspr-5   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:22:09.065332 nspr-6   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:22:09.066593 nspr-5   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:22:09.066960 nspr-5   ERROR [COM]: aRC=VBOX_E_OBJECT_NOT_FOUND (0x80bb0001) aIID={70401eef-c8e9-466b-9660-45cb3e9979e4} aComponent={ExtPackManagerWrap} aText={No extension pack by the name 'Oracle VM VirtualBox Extension Pack' was found}, preserve=false aResultDetail=0
+00:22:09.139652 nspr-5   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:22:09.140656 nspr-6   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:22:09.174101 nspr-5   ERROR [COM]: aRC=VBOX_E_IPRT_ERROR (0x80bb0005) aIID={85632c68-b5bb-4316-a900-5eb28d3413df} aComponent={SessionMachine} aText={Saved screenshot data is not available (VERR_NOT_SUPPORTED)}, preserve=false aResultDetail=-37
+00:22:09.209518 nspr-2   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlan0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:24:31.377035 nspr-2   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:24:31.382016 nspr-6   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:24:34.565738 nspr-2   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:24:34.578242 nspr-4   Saving settings file "/home/ledity/VirtualBox VMs/FreeBSD/FreeBSD.vbox" with version "1.17-linux"
+00:24:34.650459 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:24:34.693002 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:24:34.694246 nspr-7   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:24:35.561790 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:24:35.562845 nspr-7   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:32:11.876602 nspr-5   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:32:11.877538 nspr-7   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:32:13.995452 nspr-6   Saving settings file "/home/ledity/VirtualBox VMs/FreeBSD/FreeBSD.vbox" with version "1.17-linux"
+00:32:14.137167 nspr-3   Saving settings file "/home/ledity/VirtualBox VMs/FreeBSD/FreeBSD.vbox" with version "1.17-linux"
+00:32:14.225778 nspr-6   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:32:14.226710 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:32:14.717209 nspr-2   Saving settings file "/home/ledity/VirtualBox VMs/FreeBSD/FreeBSD.vbox" with version "1.17-linux"
+00:32:14.733295 nspr-4   Saving settings file "/home/ledity/VirtualBox VMs/FreeBSD/FreeBSD.vbox" with version "1.17-linux"
+00:32:14.803816 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:32:14.805848 nspr-5   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:32:15.232850 nspr-5   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:32:15.234382 nspr-6   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:33:50.948293 nspr-5   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:33:50.962760 nspr-2   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:33:50.976986 nspr-7   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:33:50.981070 nspr-4   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:33:50.985634 nspr-7   Saving settings file "/home/ledity/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:33:56.496644 main     VirtualBox: object deletion starts
+00:33:56.496717 main     ERROR [COM]: aRC=VBOX_E_OBJECT_IN_USE (0x80bb000c) aIID={ad47ad09-787b-44ab-b343-a082a3f2dfb1} aComponent={MediumWrap} aText={Medium '/home/ledity/VirtualBox VMs/FreeBSD/FreeBSD.vdi' cannot be closed because it is still attached to 1 virtual machines}, preserve=false aResultDetail=0
+00:33:56.497317 main     HostDnsMonitor: shutting down ...
+00:33:56.508481 main     HostDnsMonitor: shut down
+00:33:56.663934 Watcher  ERROR [COM]: aRC=E_ACCESSDENIED (0x80070005) aIID={d0a0163f-e254-4e5b-a1f2-011cf991c38d} aComponent={VirtualBoxWrap} aText={The object is not ready}, preserve=false aResultDetail=0
+00:34:01.508621 main     {00007f7eb0016720} HostPowerServiceLinux::~HostPowerServiceLinux: RTThreadWait() for 5000 ms failed with VERR_TIMEOUT
+00:34:01.508901 main     VirtualBox: object deleted

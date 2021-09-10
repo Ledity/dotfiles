@@ -34,6 +34,11 @@ Plugin 'git://git.wincent.com/command-t.git'
 
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
+"" 
+
+Plugin 'frazrepo/vim-rainbow'
+Plugin 'itchyny/lightline.vim'
+
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
@@ -79,3 +84,19 @@ set secure
 
 set nrformats+=alpha
 noremap <C-b> <C-a>
+
+" Powerline plugin config
+" The colorscheme for lightline.vim.
+" 		Currently, wombat, solarized, powerline, powerlineish,
+" 		jellybeans, molokai, seoul256, darcula,
+" 		selenized_dark, selenized_black, selenized_light, selenized_white,
+" 		Tomorrow, Tomorrow_Night, Tomorrow_Night_Blue,
+" 		Tomorrow_Night_Bright, Tomorrow_Night_Eighties, PaperColor,
+" 		landscape, one, materia, material, OldHope, nord, deus,
+"		simpleblack, srcery_drk, ayu_mirage, ayu_light, ayu_dark,
+" 		apprentice and 16color are available.
+
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ }

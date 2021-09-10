@@ -118,10 +118,11 @@ bindkey -v
 # aliases
 alias ls="exa --color=always --group-directories-first"
 alias sl="exa --color=always --group-directories-first"
-alias la="exa -la --color=always --group-directories-first | less"
+alias la="exa --color=always --group-directories-first -la"
 alias cm="cmatrix -b"
 alias pac="sudo aura"
 alias zshconf="vim ~/.zshrc"
+alias vimconf="vim ~/.vimrc"
 alias reb="reboot"
 alias sdstart="systemctl start"
 alias sdstop="systemctl stop"

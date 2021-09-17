@@ -60,14 +60,15 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" ------------------------- Here-Starts-True-Vimrc ------------------------- "
+" ------------------------- Here Starts True Vimrc ------------------------- "
 
 syntax on
 colorscheme koehler
-set t_Co=256
-autocmd WinEnter,FileType asm colorscheme elflord
+au WinEnter,FileType asm colorscheme elflord
+au FileType c,cpp,objc,objcpp call rainbow#load()
 
 set showcmd
+set t_Co=256
 
 set mouse=a
 
@@ -98,5 +99,5 @@ noremap <C-b> <C-a>
 
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'selenized_black',
       \ }

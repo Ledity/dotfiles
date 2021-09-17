@@ -120,9 +120,11 @@ alias ls="exa --color=always --group-directories-first"
 alias sl="exa --color=always --group-directories-first"
 alias la="exa --color=always --group-directories-first -la"
 alias cm="cmatrix -b"
+alias fm="ranger"
 alias pac="sudo aura"
-alias zshconf="vim ~/.zshrc"
-alias vimconf="vim ~/.vimrc"
+alias zshrc="vim ~/.zshrc"
+alias vimrc="vim ~/.vimrc"
+alias tmuxconf="vim ~/.tmux.conf"
 alias reb="reboot"
 alias sdstart="systemctl start"
 alias sdstop="systemctl stop"
@@ -134,6 +136,9 @@ alias sddisab="systemctl disable"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH=$HOME/bin:$PATH
 export EDITOR=vim
+export inf=/home/ledity/Study/Sem-1/Informatics
+export eng=/home/ledity/Study/Sem-1/English
+export lab=/home/ledity/Study/Sem-1/Lab-works
 
 # Set VIm as manpager
 export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'

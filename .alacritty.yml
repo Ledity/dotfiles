@@ -302,6 +302,7 @@ schemes:
     { index: 130, color: '#e2a052' }
   ]
 
+  # colors: *aritim
 colors: *aritim
 
 # Bell

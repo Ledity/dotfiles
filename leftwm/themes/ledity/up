@@ -25,8 +25,10 @@ echo "set the theme.toml config"
 
 
 #set background
-if [ -x "$(command -v feh)" ]; then
+if [ -x "$(command -v nitrogen)" ]; then
   nitrogen --restore
+elif [ -x "$(command -v feh)" ]; then
+  feh --bg-scale $SCRIPTPATH/background.jpg
 fi
 echo "set background"
 

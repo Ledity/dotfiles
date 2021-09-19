@@ -236,8 +236,14 @@ key = "l"
 
 [[keybind]]
 command = "Execute"
-value = "rofi -show run"
+value = "rofi -show run -sidebar-mode"
 modifier = ["modkey"]
+key = "p"
+
+[[keybind]]
+command = "Execute"
+value = "rofi -show window -sidebar-mode"
+modifier = ["modkey","Shift"]
 key = "p"
 
 [[keybind]]

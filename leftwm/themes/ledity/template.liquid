@@ -1,19 +1,19 @@
 {% for tag in workspace.tags %}
 {% if tag.mine %}
 %{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
-%{u#5294E2}%{+u}%{B#10151A}%{F#FFFFFF} [%{F-}%{F#5294E2}{{tag.name}}%{F-}%{F#FFFFFF}] %{F-}%{B-}%{u-}
+%{u#5294E2}%{+u}%{B#10151A22}%{F#5294E2} {{tag.name}} %{F-}%{B-}%{u-}
 %{A}
 {% elsif tag.visible  %}
 %{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
-%{u#10151A}%{+u}%{B#10151A}%{F#FFFFFF} [%{F-}%{F#CECECE}{{tag.name}}%{F-}%{F#FFFFFF}] %{F-}%{B-}%{u-}
+%{u#10151A22}%{+u}%{B#10151A22}%{F#FFFFFF} {{tag.name}} %{F-}%{B-}%{u-}
 %{A}
 {% elsif tag.busy %}
 %{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
-%{u#E2C552}%{+u}%{B#10151A}%{F#FFFFFF} [%{F-}%{F#E2C552}{{tag.name}}%{F-}%{F#FFFFFF}] %{F-}%{B-}%{u-}
+%{u#E2C552}%{+u}%{B#10151A22}%{F#E2C552} {{tag.name}} %{F-}%{B-}%{u-}
 %{A}
 {% else tag.visible  %}
 %{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
-%{u#10151A}%{+u}%{B#10151A}%{F#FFFFFF} [%{F-}%{F#CECECE}{{tag.name}}%{F-}%{F#FFFFFF}] %{F-}%{B-}%{u-}
+%{u#10151A22}%{+u}%{B#10151A22}%{F#FFFFFF} {{tag.name}} %{F-}%{B-}%{u-}
 %{A}
 {% endif %}
 {% endfor %}

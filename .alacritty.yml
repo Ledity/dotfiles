@@ -299,7 +299,7 @@ schemes:
   #indexed_colors: []
   
   indexed_colors: [
-    { index: 130, color: '#e2a052' }
+    { index: 16, color: '#141a21' }
   ]
 
   # colors: *aritim
@@ -349,7 +349,7 @@ colors: *aritim
 # Background opacity
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
+# She value `0.0` is completely transparent and `1.0` is opaque.
 background_opacity: 0.85
 
 #selection:

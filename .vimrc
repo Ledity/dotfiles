@@ -38,6 +38,7 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'itchyny/lightline.vim'
+Plugin 'scrooloose/nerdtree'
 
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
@@ -58,14 +59,12 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
-" ------------------------- Here Starts True Vimrc ------------------------- "
+" ------------------------- Here Starts True vimrc ------------------------- "
 
 syntax on
 colorscheme koehler
 au WinEnter,FileType asm colorscheme elflord
-au FileType c,cpp,objc,objcpp call rainbow#load()
 
 set showcmd
 set t_Co=256
@@ -85,6 +84,23 @@ set secure
 
 set nrformats+=alpha
 noremap <C-b> <C-a>
+
+" Disabling YCM's syntax checking
+
+let g:ycm_show_diagnostics_ui = 1
+let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_enable_diagnostics_highlighting = 0
+let g:ycm_auto_hover = ''
+
+" Enabling NERDTree at start
+
+let g:nerdtree_tabs_open_on_console_startup = 1
+au VimEnter * NERDTree
+au VimEnter * wincmd p
+
+" Enabling vim-rainbow in c, cpp, objc and abjcpp
+
+au FileType c,cpp,objc,objcpp call rainbow#load()
 
 " Powerline plugin config
 " The colorscheme for lightline.vim.

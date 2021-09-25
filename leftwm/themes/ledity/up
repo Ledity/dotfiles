@@ -13,7 +13,7 @@ echo "down the last running theme"
 
 #boot picom or compton if it exists
 if [ -x "$(command -v picom)" ]; then
-  picom &> /dev/null & 
+  picom --experimental-backend &> /dev/null & 
 elif [ -x "$(command -v compton)" ]; then
   compton &> /dev/null & 
 fi
@@ -30,7 +30,23 @@ if [ -x "$(command -v nitrogen)" ]; then
 elif [ -x "$(command -v feh)" ]; then
   feh --bg-scale $SCRIPTPATH/background.jpg
 fi
-echo "set background"
+
+
+#xbindkeys
+if [ -x "$(command -v xbindkeys)" ]; then
+  xbindkeys -p &
+fi
+
+
+#touchpad settings
+if [ -x "$(command -v xinput)" ]; then
+  if [ -x "$(xinput list-props "ELAN2602:00 04F3:3109 Touchpad")" ] | grep Natural; then
+    xinput set-prop "ELAN2602:00 04F3:3109 Touchpad" 299 1 &
+  fi
+  if [ -x "$(xinput list-props "ELAN2602:00 04F3:3109 Touchpad")" ] | grep Acceleration; then
+    xinput set-prop "ELAN2602:00 04F3:3109 Touchpad" 308 0.00003 &
+  fi
+fi
 
 
 index=0
@@ -42,3 +58,7 @@ do
   let index=index+1
 done
 
+#monitor="$(polybar -m | grep +0+0 | sed s/:.*// | tac)"
+#leftwm-state -q -n -t $SCRIPTPATH/sizes.liquid | sed -r '/^\s*$/d' | read -r width x y
+#barname="bottom0"
+#monitor=$monitor offsetx=$x y=$y width=$width polybar -c $SCRIPTPATH/polybar.config $barname &> /dev/null &

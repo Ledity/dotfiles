@@ -1,0 +1,172 @@
+configuration {
+    modi:                "drun,window,run";
+    display-drun:        "Applications";
+    display-window:      "Windows";
+    display-run:         "Run";
+    show-icons:          true;
+    terminal:            "alacritty";
+    threads:             0;
+}
+
+* {
+    font: "Hack 14";
+    foreground:                 #ffffff;
+    foreground-alt:             #ffffff;
+    dark:                       #10151a85;
+    dark-transparent:           #10151a00;
+    lighter:                    #141a2185;
+    light:                      #172a3d;
+    accent:                     #5294e2;
+    extra:                      #52e2c4;
+    alert:                      #e25270; 
+}
+
+#window {
+    background-color: @dark;
+    border:           5;
+    border-radius:    10;
+    border-color:     @accent;
+    padding:          0px 0px 0px;
+    width:            30%;
+    location:         center;
+}
+
+#mainbox {
+    border:  0;
+    padding: 0;
+}
+
+#message {
+    border:       0px 0px 0px;
+    border-color: @alert;
+    padding:      1px;
+}
+
+#textbox {
+    text-color: @foreground-alt;
+}
+
+#listview {
+    background-color: @dark;
+    lines:        8;
+    border:       0px 0px 0px;
+    border-color: @dark;
+    spacing:      0px;
+    scrollbar:    true;
+    cycle:        true;
+    padding:      0px 0px 0px 0px;
+}
+
+#element {
+    background-color: @accent;
+    text-color: @foreground-alt;
+    border:        0; 
+    border-radius: 0;
+    padding:       15px;
+    children: [element-icon, element-text];
+}
+
+#element-text { 
+    highlight:    @extra; 
+}
+
+#element-icon {
+    size: 0.9em;
+}
+
+#element.normal.normal {
+    background-color: @lighter;
+    text-color:       @foreground;
+}
+
+#element.normal.urgent {
+    background-color: @lighter;
+    text-color:       @foreground;
+}
+
+#element.normal.active {
+    background-color: @lighter;
+    text-color:       @foreground-alt;
+}
+
+#element.selected.normal {
+    background-color: @accent;
+    text-color:       @foreground-alt;
+}
+
+#element.selected.urgent {
+    background-color: @accent;
+    text-color:       @foreground-alt;
+}
+
+#element.selected.active {
+    background-color: @accent;
+    text-color:       @foreground-alt;
+}
+
+#element.alternate.normal {
+    background-color: @dark;
+    text-color:       @foreground;
+}
+
+#element.alternate.urgent {
+    background-color: @dark;
+    text-color:       @foreground;
+}
+
+#element.alternate.active {
+    background-color: @dark;
+    text-color:       @foreground;
+}
+
+#scrollbar {
+    width:        2px;
+    border:       0;
+    handle-width: 8px;
+    padding:      0;
+}
+
+#sidebar {
+    border:       2px dash 0px 0px;
+    border-color: @foreground;
+}
+
+#button.selected {
+    background-color: @light;
+    text-color:       @extra;
+}
+
+#inputbar {
+    background-color: @dark-transparent;
+    spacing:    0;
+    text-color: @foreground-alt;
+    padding:    25px ;
+    children:   [ entry ];
+}
+
+#case-indicator {
+    spacing:    0;
+    text-color: @foreground;
+}
+
+#entry {
+    background-color: @dark;
+    spacing:    0;
+    text-color: @foreground-alt;
+}
+
+#prompt {
+    background-color: @dark;
+    spacing:    5;
+    text-color: @foreground-alt;
+}
+
+#textbox-prompt-colon {
+    background-color: @dark;
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em;
+    text-color: @foreground-alt;
+}
+
+/* vim:ft=css

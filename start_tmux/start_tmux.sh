@@ -8,8 +8,8 @@
 #    |___     |___     |_  |  __  |_       |     ___  |
 #        |        |        |        |      |          | 
 #
-# This simple script attaches the first unattached tmux session,
-# if there is one, or creates a new, if there isn't.
+# This simple script attaches the first unattached tmux session.
+# If there isn't one, it creates a new.
 
 if tmux list-sessions | awk '$1 ~ ":" && $0 !~ "(attached)" {print $0}' | grep ""; then
     echo "attach" $(tmux list-sessions | awk '$1 ~ ":" && $0 !~ "(attached)" {print substr ($1, 1, 1)}' | awk 'NR==1{print $1}') 

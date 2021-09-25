@@ -109,9 +109,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Enable vim mode
-bindkey -v
-
 # "vim" as manpager
 # export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
 
@@ -136,6 +133,7 @@ alias sddisab="systemctl disable"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH=$HOME/bin:$PATH
 export EDITOR=vim
+export QT_QPA_PLATFORMTHEME=qt5ct
 export inf=/home/ledity/Study/Sem-1/Informatics
 export eng=/home/ledity/Study/Sem-1/English
 export lab=/home/ledity/Study/Sem-1/Lab-works

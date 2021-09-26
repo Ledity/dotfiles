@@ -40,10 +40,10 @@ fi
 
 #touchpad settings
 if [ -x "$(command -v xinput)" ]; then
-  if [ -x "$(xinput list-props "ELAN2602:00 04F3:3109 Touchpad")" ] | grep Natural; then
+  if xinput list-props "ELAN2602:00 04F3:3109 Touchpad" | grep 299; then
     xinput set-prop "ELAN2602:00 04F3:3109 Touchpad" 299 1 &
   fi
-  if [ -x "$(xinput list-props "ELAN2602:00 04F3:3109 Touchpad")" ] | grep Acceleration; then
+  if xinput list-props "ELAN2602:00 04F3:3109 Touchpad" | grep 308; then
     xinput set-prop "ELAN2602:00 04F3:3109 Touchpad" 308 0.00003 &
   fi
 fi

@@ -34,11 +34,12 @@ Plugin 'git://git.wincent.com/command-t.git'
 
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-"" 
+" 
 
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-commentary'
 
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
@@ -85,7 +86,7 @@ set secure
 set nrformats+=alpha
 noremap <C-b> <C-a>
 
-" Disabling YCM's syntax checking
+" Disabling YCM's syntax checking and popups
 
 let g:ycm_show_diagnostics_ui = 1
 let g:ycm_enable_diagnostic_signs = 0

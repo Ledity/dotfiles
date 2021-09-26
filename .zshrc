@@ -116,6 +116,7 @@ source $ZSH/oh-my-zsh.sh
 alias ls="exa --color=always --group-directories-first"
 alias sl="exa --color=always --group-directories-first"
 alias la="exa --color=always --group-directories-first -la"
+alias rm="rm -i"
 alias cm="cmatrix -b"
 alias fm="ranger"
 alias pac="sudo aura"

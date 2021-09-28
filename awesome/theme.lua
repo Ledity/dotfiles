@@ -11,9 +11,9 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "FontAwesome5 Free 10"
+theme.font          = "Hack 11"
 
-theme.dark = "#10151a"
+theme.dark = "#10151ad9"
 theme.lighter = "#141a21"
 theme.light = "#172a3d"
 
@@ -116,7 +116,8 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = themes_path.."default/background.png"
+wallpaper = "/home/ledity/Images/Wallpapers/"
+theme.wallpaper = wallpaper.."1.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"

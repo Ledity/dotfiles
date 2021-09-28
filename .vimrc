@@ -78,7 +78,10 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+
 set autoindent
+set smartindent
+set pastetoggle=<F3>
 
 set exrc
 set secure

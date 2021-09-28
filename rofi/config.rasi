@@ -137,7 +137,7 @@ configuration {
 }
 
 #inputbar {
-    background-color: @dark-transparent;
+    background-color: @dark;
     spacing:    0;
     text-color: @foreground-alt;
     padding:    25px ;
@@ -150,7 +150,7 @@ configuration {
 }
 
 #entry {
-    background-color: @dark;
+    background-color: @dark-transparent;
     spacing:    0;
     text-color: @foreground-alt;
 }

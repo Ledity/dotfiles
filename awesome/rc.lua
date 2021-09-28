@@ -59,6 +59,16 @@ winchooser = "rofi -show window"
 runpromt = "rofi -show run"
 editor_cmd = terminal .. " -e " .. editor
 
+-- Tag names
+t1 = "  "
+t2 = "  "
+t3 = "  "
+t4 = "  "
+t5 = "  "
+t6 = "  "
+t7 = "  "
+t8 = "  " 
+
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
@@ -69,6 +79,7 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.tile,
+    awful.layout.suit.tile.top,
     awful.layout.suit.fair.horizontal,
     awful.layout.suit.max,
     awful.layout.suit.magnifier,
@@ -79,7 +90,6 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.nw,
     -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
-    -- awful.layout.suit.tile.top,
     -- awful.layout.suit.fair,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
@@ -116,7 +126,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- Create a textclock widget
 local mytextclock = wibox.widget {
     align  = 'center',
-    format = '    %d.%m  |    %H:%M  ',
+    format = ' %d.%m |  %H:%M',
     valign = 'center',
     widget = wibox.widget.textclock
 }
@@ -188,10 +198,15 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " }, s, awful.layout.layouts[1])
+    awful.tag({ t1, t2, t3, t4, t5, t6, t7, t8 }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
-    s.mypromptbox = awful.widget.prompt()
+    s.mypromptbox = awful.widget.prompt {
+        prompt = " Run ❯ ",
+        bg = beautiful.light,
+        fg = beautiful.cyan,
+        font = "Hack 10"
+    }
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
@@ -201,10 +216,13 @@ awful.screen.connect_for_each_screen(function(s)
                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(-1) end)))
     -- Create a taglist widget
-    s.mytaglist = awful.widget.taglist {
-        screen  = s,
-        filter  = awful.widget.taglist.filter.all,
-        buttons = taglist_buttons
+    s.mytaglist    = awful.widget.taglist {
+        screen     = s,
+        filter     = awful.widget.taglist.filter.all,
+        buttons    = taglist_buttons,
+        style = {
+            font  = "FontAwesome5 Free 10",
+        },
     }
 
     -- Create a tasklist widget
@@ -232,9 +250,8 @@ awful.screen.connect_for_each_screen(function(s)
             spacer,
             spacer,
             { -- Right widgets
-                layout = wibox.layout.align.horizontal,
+                layout = wibox.layout.fixed.horizontal,
                 mykeyboardlayout,
-                spacer,
                 wibox.widget.systray(),
             }
         }
@@ -244,8 +261,7 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            s.mytasklist,
-            s.mypromptbox,
+            s.mypromptbox
         },
         spacer,
         { -- Right widgets
@@ -312,24 +328,28 @@ globalkeys = gears.table.join(
 
     -- Choosing layouts
               -- Main And Vert Stack
-    awful.key({ modkey,           }, "a", function () awful.client.swap.byidx(  1)    end,
-              {description = "swap with next client by index", group = "layout"}),
+    awful.key({ modkey,           }, "a", function () awful.layout.set(awful.layout.suit.tile)    end,
+              {description = "change to main and vert stack layout", group = "layout"}),
         
+              -- Main And Hor Stack
+    awful.key({ modkey, "Shift"   }, "a", function () awful.layout.set(awful.layout.suit.tile.bottom)    end,
+              {description = "change to main and hor stack layout", group = "layout"}),
+
               -- Fair Horisontal
-    awful.key({ modkey,           }, "a", function () awful.client.swap.byidx(  1)    end,
-              {description = "swap with next client by index", group = "layout"}),
+    awful.key({ modkey,           }, "s", function () awful.layout.set(awful.layout.suit.fair.horizontal)    end,
+              {description = "change to fair horisontal layout", group = "layout"}),
         
               -- Monocle
-    awful.key({ modkey,           }, "a", function () awful.client.swap.byidx(  1)    end,
-              {description = "swap with next client by index", group = "layout"}),
+    awful.key({ modkey, "Shift"   }, "s", function () awful.layout.set(awful.layout.suit.max)    end,
+              {description = "change to monocle layout", group = "layout"}),
         
               -- Magnifier
-    awful.key({ modkey,           }, "a", function () awful.client.swap.byidx(  1)    end,
-              {description = "swap with next client by index", group = "layout"}),
+    awful.key({ modkey,           }, "d", function () awful.layout.set(awful.layout.suit.magnifier)    end,
+              {description = "change to magnifier layout", group = "layout"}),
         
               -- Floating
-    awful.key({ modkey,           }, "a", function () awful.client.swap.byidx(  1)    end,
-              {description = "swap with next client by index", group = "layout"}),
+    awful.key({ modkey, "Shift"   }, "d", function () awful.layout.set(awful.layout.suit.floating)    end,
+              {description = "change to floating layout", group = "layout"}),
         
     -- Standard program
               -- Launcher
@@ -465,7 +485,7 @@ globalkeys = gears.table.join(
 
     awful.key({ modkey, "Shift"   }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit,
+    awful.key({ modkey, "Shift"   }, "x", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incmwfact(-0.05)          end,
@@ -692,13 +712,10 @@ awful.rules.rules = {
       }, properties = { floating = true }},
 
     -- Add titlebars to normal clients and dialogs
-    -- { rule_any = {type = { "normal", "dialog" }
-    --   }, properties = { titlebars_enabled = true }
+    -- { rule_any = { type = { "normal", "dialog" }
+      -- }, properties = { titlebars_enabled = true }
     -- },
 
-    -- Set Firefox to always map on the tag named "1" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "" } },
 }
 -- }}}
 
@@ -730,7 +747,9 @@ client.connect_signal("request::titlebars", function(c)
 
     awful.titlebar(c) : setup {
         { -- Left
-            awful.titlebar.widget.iconwidget(c),
+            awful.titlebar.widget.iconwidget     (c),
+            awful.titlebar.widget.stickybutton   (c),
+            awful.titlebar.widget.floatingbutton (c),
             buttons = buttons,
             layout  = wibox.layout.fixed.horizontal
         },
@@ -743,14 +762,18 @@ client.connect_signal("request::titlebars", function(c)
             layout  = wibox.layout.flex.horizontal
         },
         { -- Right
-            awful.titlebar.widget.floatingbutton (c),
-            awful.titlebar.widget.maximizedbutton(c),
-            awful.titlebar.widget.stickybutton   (c),
-            awful.titlebar.widget.ontopbutton    (c),
-            awful.titlebar.widget.closebutton    (c),
-            layout = wibox.layout.fixed.horizontal()
+            spacer,
+            spacer,
+            {
+                awful.titlebar.widget.minimizebutton (c),
+                awful.titlebar.widget.maximizedbutton(c),
+                awful.titlebar.widget.closebutton    (c),
+                layout = wibox.layout.fixed.horizontal()
+            },
+            layout = wibox.layout.align.horizontal
         },
-        layout = wibox.layout.align.horizontal
+        layout = wibox.layout.align.horizontal,
+        expand = "outside"
     }
 end)
 

@@ -4,6 +4,7 @@ pcall(require, "luarocks.loader")
 
 -- Standard awesome library
 local gears = require("gears")
+local lain  = require("lain")
 local awful = require("awful")
 require("awful.autofocus")
 -- Widget and layout library
@@ -17,6 +18,20 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+
+-- {{{ Autolaunch
+awful.spawn("pkill picom")
+awful.spawn("pkill nm-applet")
+awful.spawn("pkill blueman-applet")
+awful.spawn("pkill loloswitcher")
+awful.spawn("xbindkeys -p")
+awful.spawn("xinput set-prop 'ELAN2602:00 04F3:3109 Touchpad' 299 1")
+awful.spawn("nm-applet")
+awful.spawn("blueman-applet")
+awful.spawn("picom")
+awful.spawn("loloswitcher")
+awful.spawn("nitrogen --restore")
+-- }}}
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -99,43 +114,205 @@ awful.layout.layouts = {
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
-myawesomemenu = {
-   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", function() awesome.quit() end },
+ledawesomemenu = {
+    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+    { "manual", terminal .. " -e man awesome" },
+    { "edit config", editor_cmd .. " " .. awesome.conffile },
+    { "restart", awesome.restart },
+    { "quit", function() awesome.quit() end },
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
-                                  }
-                        })
+beautiful.menu_width = 280
+ledmainmenu = awful.menu({
+    items = {
+        { " awesome",         ledawesomemenu},
+        { " open browser",          browser},
+        { " open  terminal",        terminal},
+        { " open file manager", filemanager},
+        { " open calculator",    calculator},
+    }
+})
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-                                     menu = mymainmenu })
+ledlauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
+                                     menu = ledmainmenu })
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
--- Create a textclock widget
-local mytextclock = wibox.widget {
-    align  = 'center',
-    format = ' %d.%m |  %H:%M',
-    valign = 'center',
-    widget = wibox.widget.textclock
+-- Require awesome-wm-widgets
+local cpu_aw_wm = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+-- Require noobie
+-- local noobie_emxaple_1 = require("noobie")
+
+-- Textclock widget
+local ledtextclock = wibox.widget {
+    {
+        forced_width = 50,
+        text   = '',
+        align  = 'center',
+        valign = 'center',
+        font   = 'FontAwesome5 Free 10',
+        widget = wibox.widget.textbox,
+    },
+    {
+        align  = 'center',
+        format = '%d.%m |',
+        valign = 'center',
+        widget = wibox.widget.textclock
+    },
+    {
+        forced_width = 50,
+        text   = '',
+        align  = 'center',
+        valign = 'center',
+        font   = 'FontAwesome5 Free 10',
+        widget = wibox.widget.textbox,
+    },
+    {
+        align  = 'center',
+        format = '%H:%M',
+        valign = 'center',
+        widget = wibox.widget.textclock
+    },
+    layout = wibox.layout.fixed.horizontal,
 }
 
-local spacer = wibox.widget {
-    markup = ' ',
-    align  = 'center',
-    valign = 'center',
-    widget = wibox.widget.textbox
+-- Keyboard map indicator and switcher
+local ledkeyboardlayout = {
+    {
+        {
+            text   = ' ',
+            widget = wibox.widget.textbox,
+        },
+        {
+            text   = '',
+            align  = 'center',
+            valign = 'center',
+            font   = 'FontAwesome5 Free 10',
+            widget = wibox.widget.textbox,
+        },
+        {
+            text   = ' :',
+            widget = wibox.widget.textbox,
+        },
+        {
+            widget       = awful.widget.keyboardlayout(),
+        },
+        layout = wibox.layout.fixed.horizontal,
+    },
+    bg = beautiful.blue,
+    widget = wibox.widget.background,
+}
+
+beautiful.bg_systray = beautiful.bluish
+beautiful.systray_icon_spacing = 5
+
+local ledtray = {
+    {
+        {
+            forced_width = 6,
+            align  = 'center',
+            valign = 'center',
+            widget = wibox.widget.textbox,
+        },
+        {
+            base_size = 34,
+            horizontal = true,
+            widget = wibox.widget.systray,
+        },
+        {
+            forced_width = 13,
+            align  = 'center',
+            valign = 'center',
+            widget = wibox.widget.textbox,
+        },
+        layout = wibox.layout.fixed.horizontal,
+    },
+    bg = beautiful.bluish,
+    widget = wibox.container.background,
+}
+
+-- Battery widget
+local ledbattery = wibox.widget {
+    {
+        lain.widget.bat {
+            battery = "BAT0",
+            settings = function()
+                bat_bg_colour = beautiful.green
+                icon = "<span font_family='FontAwesome5 Free'></span>"
+                perc = tonumber(bat_now.perc)
+                if     perc < 13 then
+                    bat_bg_colour = beautiful.orange
+                    icon = "<span font_family='FontAwesome5 Free'></span>"
+                elseif perc >= 13 and perc < 38 then
+                    bat_bg_colour = beautiful.orange
+                    icon = "<span font_family='FontAwesome5 Free'></span>"
+                elseif perc >= 38 and perc < 63 then
+                    bat_bg_colour = beautiful.green
+                    icon = "<span font_family='FontAwesome5 Free'></span>"
+                elseif perc >= 63 and perc < 88 then
+                    bat_bg_colour = beautiful.green
+                    icon = "<span font_family='FontAwesome5 Free'></span>"
+                else
+                    bat_bg_colour = beautiful.green
+                    icon = "<span font_family='FontAwesome5 Free'></span>"
+                end
+                widget:set_markup(" " .. icon .." : " .. perc .. "% ")
+            end
+        },
+        layout = wibox.layout.fixed.horizontal,
+    },
+    bg = bat_bg_colour ,
+    widget = wibox.container.background,
+}
+
+-- CPU widget
+local ledcpu = wibox.widget {
+    {
+        {
+            text   = ' ',
+            widget = wibox.widget.textbox,
+        },
+        {
+            text   = '',
+            font   = 'FontAwesome5 Free 10',
+            widget = wibox.widget.textbox,
+        },
+        {
+            text   = ' : ',
+            widget = wibox.widget.textbox,
+        },
+        cpu_aw_wm({
+            width = 70,
+        }),
+        lain.widget.cpu {
+            timeout = 1,
+            settings = function()
+                widget:set_markup(" | " .. cpu_now.usage .. "% ")
+            end,
+        },
+        layout = wibox.layout.fixed.horizontal,
+    },
+    bg = beautiful.red,
+    widget = wibox.container.background,
+}
+
+-- Memory widget
+local ledmem = wibox.widget {
+    {
+        lain.widget.mem {
+            timeout = 2,
+            settings = function()
+                icon = "<span font_family='FontAwesome5 Free'></span>"
+                widget:set_markup(" " .. icon .." : " .. mem_now.used .. " MiB | " .. mem_now.perc .. "% ")
+            end,
+        },
+        layout = wibox.layout.fixed.horizontal,
+    },
+    bg = beautiful.yellow,
+    widget = wibox.container.background,
 }
 
 -- Create a wibox for each screen and add it
@@ -195,28 +372,28 @@ screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
-    set_wallpaper(s)
+    -- set_wallpaper(s)
 
     -- Each screen has its own tag table.
     awful.tag({ t1, t2, t3, t4, t5, t6, t7, t8 }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
-    s.mypromptbox = awful.widget.prompt {
+    s.ledpromptbox = awful.widget.prompt {
         prompt = " Run ❯ ",
         bg = beautiful.light,
         fg = beautiful.cyan,
-        font = "Hack 10"
+        font = "MesloLGS NF 10",
     }
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
-    s.mylayoutbox = awful.widget.layoutbox(s)
-    s.mylayoutbox:buttons(gears.table.join(
+    s.ledlayoutbox = awful.widget.layoutbox(s)
+    s.ledlayoutbox:buttons(gears.table.join(
                            awful.button({ }, 1, function () awful.layout.inc( 1) end),
                            awful.button({ }, 3, function () awful.layout.inc(-1) end),
                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(-1) end)))
     -- Create a taglist widget
-    s.mytaglist    = awful.widget.taglist {
+    s.ledtaglist    = awful.widget.taglist {
         screen     = s,
         filter     = awful.widget.taglist.filter.all,
         buttons    = taglist_buttons,
@@ -226,7 +403,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist {
+    s.ledtasklist = awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
         buttons = tasklist_buttons
@@ -238,45 +415,70 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Add widgets to the wibox
     s.topwibox:setup {
-        layout = wibox.layout.align.horizontal,
-        expand = "outside",
         { -- Left widgets
+            s.ledtaglist,
             layout = wibox.layout.fixed.horizontal,
-            s.mytaglist,
         },
-            mytextclock, -- Middle widgets
+        { -- Middle widgets
+            ledtextclock,
+            layout = wibox.layout.fixed.horizontal,
+        },
         {
-            layout = wibox.layout.align.horizontal,
-            spacer,
-            spacer,
-            { -- Right widgets
+            {
                 layout = wibox.layout.fixed.horizontal,
-                mykeyboardlayout,
-                wibox.widget.systray(),
-            }
-        }
+            },
+            {
+                layout = wibox.layout.fixed.horizontal,
+            },
+            { -- Right widgets
+                ledkeyboardlayout,
+                ledtray,
+                ledbattery,
+                {
+                    s.ledlayoutbox,
+                    bg     = beautiful.purple,
+                    widget = wibox.container.background,
+                },
+                layout = wibox.layout.fixed.horizontal,
+            },
+            layout = wibox.layout.align.horizontal,
+        },
+        expand = "outside",
+        layout = wibox.layout.align.horizontal,
     }
 
+    -- Add widgets to the wibox
     s.botwibox:setup {
-        layout = wibox.layout.align.horizontal,
         { -- Left widgets
+            s.ledpromptbox,
             layout = wibox.layout.fixed.horizontal,
-            s.mypromptbox
         },
-        spacer,
-        { -- Right widgets
+        { -- Middle widgets
             layout = wibox.layout.fixed.horizontal,
-            s.mylayoutbox,
         },
+        {
+            {
+                layout = wibox.layout.fixed.horizontal,
+            },
+            {
+                layout = wibox.layout.fixed.horizontal,
+            },
+            { -- Right widgets
+                ledcpu,
+                ledmem,
+                layout = wibox.layout.fixed.horizontal,
+            },
+            layout = wibox.layout.align.horizontal,
+        },
+        expand = "outside",
+        layout = wibox.layout.align.horizontal,
     }
 end)
 -- }}}
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 3, function () ledmainmenu:toggle() end)
 ))
 -- }}}
 
@@ -303,7 +505,7 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    -- awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+    -- awful.key({ modkey,           }, "w", function () ledmainmenu:show() end,
     --           {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
@@ -432,6 +634,12 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "m", function () awful.spawn(musicplayer) end,
               {description = "open a music player", group = "launcher"}),
 
+              -- Screenshot manager
+    awful.key({                   }, "Print", function () awful.spawn("spectacle") end,
+              {description = "open spectacle", group = "launcher"}),
+    awful.key({ modkey,           }, "Print", function () awful.spawn("spectacle -an") end,
+              {description = "take a screenshot with spectacle", group = "launcher"}),
+
               -- Gimp
     awful.key({ modkey,           }, "v", function ()
                         local screen = awful.screen.focused()
@@ -482,7 +690,6 @@ globalkeys = gears.table.join(
                         awful.spawn("virtualbox") end,
               {description = "open VirtualBox on tag 8", group = "launcher"}),
 
-
     awful.key({ modkey, "Shift"   }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "x", awesome.quit,
@@ -518,7 +725,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ modkey },            "r",     function () awful.screen.focused().ledpromptbox:run() end,
               {description = "run prompt", group = "launcher"})
 
     -- awful.key({ modkey }, "x",
@@ -713,7 +920,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     -- { rule_any = { type = { "normal", "dialog" }
-      -- }, properties = { titlebars_enabled = true }
+        -- }, properties = { titlebars_enabled = true }
     -- },
 
 }
@@ -745,35 +952,37 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c) : setup {
+    local rightbar = awful.titlebar(c, {
+    size      = 40,
+    position = 'right',
+	})
+
+    rightbar : setup {
         { -- Left
             awful.titlebar.widget.iconwidget     (c),
             awful.titlebar.widget.stickybutton   (c),
             awful.titlebar.widget.floatingbutton (c),
             buttons = buttons,
-            layout  = wibox.layout.fixed.horizontal
+            layout  = wibox.layout.fixed.vertical
         },
         { -- Middle
-            { -- Title
-                align  = "center",
-                widget = awful.titlebar.widget.titlewidget(c)
-            },
+            -- { -- Title
+                -- align  = "center",
+                -- widget = awful.titlebar.widget.titlewidget(c)
+            -- },
             buttons = buttons,
-            layout  = wibox.layout.flex.horizontal
+            layout  = wibox.layout.flex.vertical
         },
         { -- Right
-            spacer,
-            spacer,
             {
                 awful.titlebar.widget.minimizebutton (c),
                 awful.titlebar.widget.maximizedbutton(c),
                 awful.titlebar.widget.closebutton    (c),
                 layout = wibox.layout.fixed.horizontal()
             },
-            layout = wibox.layout.align.horizontal
+            layout = wibox.layout.align.vertical
         },
-        layout = wibox.layout.align.horizontal,
-        expand = "outside"
+        layout = wibox.layout.align.vertical,
     }
 end)
 

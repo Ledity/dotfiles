@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "Hack 11"
+theme.font          = "MesloLGS NF 11"
 
 theme.dark = "#10151ad9"
 theme.lighter = "#141a21"
@@ -37,7 +37,7 @@ theme.bg_urgent     = theme.red
 theme.bg_minimize   = theme.lighter
 theme.bg_systray    = theme.dark
 
-theme.fg_normal     = theme.gray
+theme.fg_normal     = theme.white
 theme.fg_focus      = theme.white
 theme.fg_urgent     = theme.white
 theme.fg_minimize   = theme.white
@@ -139,7 +139,7 @@ theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
 
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(
-    theme.menu_height, theme.fg_focus
+    theme.menu_height, theme.blue, theme.dark
 )
 
 -- Define the icon theme for application icons. If not set then the icons

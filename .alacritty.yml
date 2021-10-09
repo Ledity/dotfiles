@@ -14,14 +14,14 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-env:
+# env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: xterm-256color
+  # TERM: xterm-256color
 
 #window:
   # Window dimensions (changes require restart)
@@ -104,19 +104,19 @@ env:
 # Font configuration
 font:
   normal:
-    family: Hack
+    family: MesloLGS NF
     style: Regular
 
   bold:
-    family: Hack
+    family: MesloLGS NF
     style: Bold
 
   italic:
-    family: Hack
+    family: MesloLGS NF
     style: Italic
 
   bold_italic:
-    family: Hack
+    family: MesloLGS NF
     style: Bold Italic
 
   size: 11.0
@@ -285,8 +285,8 @@ schemes:
 
   # Vi-mode cursor
   vi_mode_cursor:
-    text: CellBackground
-    cursor: CellForeground
+    text: CellForeground
+    cursor: CellBackground
 
   # Indexed Colors
   #
@@ -386,7 +386,7 @@ cursor:
   # the style of the active value of the normal cursor.
   #
   # See `cursor.style` for available options.
-  vi_mode_style: None
+  vi_mode_style: Block
 
   # Cursor blinking interval in milliseconds.
   blink_interval: 700
@@ -492,7 +492,7 @@ shell:
 # Key bindings are specified as a list of objects. For example, this is the
 # default paste binding:
 #
-# `- { key: V, mods: Control|Shift, action: Paste }`
+# `- { key: V, mods: Control|Alt, action: Paste }`
 #
 # Each key binding will specify a:
 #
@@ -691,7 +691,7 @@ shell:
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
-#key_bindings:
+key_bindings:
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
@@ -703,13 +703,13 @@ shell:
 
   # Vi Mode
   #- { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
-  #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
+  - { key: Space,  mods: Alt|Control,   mode: ~Search,    action: ToggleViMode            }
   #- { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
   #- { key: I,                           mode: Vi|~Search, action: ScrollToBottom          }
-  #- { key: I,                           mode: Vi|~Search, action: ToggleViMode            }
+  - { key: I,                           mode: Vi|~Search, action: ToggleViMode            }
   #- { key: C,      mods: Control,       mode: Vi|~Search, action: ToggleViMode            }
-  #- { key: Y,      mods: Control,       mode: Vi|~Search, action: ScrollLineUp            }
-  #- { key: E,      mods: Control,       mode: Vi|~Search, action: ScrollLineDown          }
+  - { key: K,      mods: Shift,         mode: Vi|~Search, action: ScrollLineUp            }
+  - { key: J,      mods: Shift,         mode: Vi|~Search, action: ScrollLineDown            }
   #- { key: G,                           mode: Vi|~Search, action: ScrollToTop             }
   #- { key: G,      mods: Shift,         mode: Vi|~Search, action: ScrollToBottom          }
   #- { key: B,      mods: Control,       mode: Vi|~Search, action: ScrollPageUp            }

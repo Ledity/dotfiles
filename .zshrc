@@ -134,7 +134,6 @@ alias sddisab="systemctl disable"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH=$HOME/bin:$PATH
 export EDITOR=vim
-export QT_QPA_PLATFORMTHEME=qt5ct
 export inf=/home/ledity/Study/Sem-1/Informatics
 export eng=/home/ledity/Study/Sem-1/English
 export lab=/home/ledity/Study/Sem-1/Lab-works

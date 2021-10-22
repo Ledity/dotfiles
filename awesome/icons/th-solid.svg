@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   aria-hidden="true"
+   focusable="false"
+   data-prefix="fas"
+   data-icon="th"
+   class="svg-inline--fa fa-th fa-w-16"
+   role="img"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="th-solid.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     showgrid="false"
+     inkscape:zoom="0.88879118"
+     inkscape:cx="60.194117"
+     inkscape:cy="74.820725"
+     inkscape:window-width="2150"
+     inkscape:window-height="1352"
+     inkscape:window-x="0"
+     inkscape:window-y="39"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     fill="currentColor"
+     d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"
+     id="path2"
+     style="fill:#ffffff" />
+  <rect
+     style="fill:#ffffff;stroke:#ffffff"
+     id="rect50"
+     width="377.53671"
+     height="126.9566"
+     x="74.770935"
+     y="32.542366"
+     rx="3.31791"
+     ry="4.2994399" />
+  <rect
+     style="fill:#ffffff;stroke:#ffffff"
+     id="rect52"
+     width="146.76033"
+     height="354.78909"
+     x="364.66473"
+     y="96.293816"
+     rx="3.31791"
+     ry="4.2994399" />
+  <rect
+     style="fill:#ffffff;stroke:#ffffff"
+     id="rect54"
+     width="322.33383"
+     height="127.14006"
+     x="108.57527"
+     y="192.46529"
+     rx="3.31791"
+     ry="4.2994399" />
+  <rect
+     style="fill:#ffffff;stroke:#ffffff"
+     id="rect56"
+     width="148.29204"
+     height="182.71623"
+     x="0.46127856"
+     y="255.73831"
+     rx="3.31791"
+     ry="4.2994399" />
+  <rect
+     style="fill:#ffffff;stroke:#ffffff"
+     id="rect58"
+     width="248.02888"
+     height="127.02246"
+     x="39.907818"
+     y="352.48022"
+     rx="3.3179016"
+     ry="4.2994399" />
+  <rect
+     style="fill:#ffffff;stroke:#ffffff"
+     id="rect60"
+     width="18.552446"
+     height="12.681569"
+     x="86.29631"
+     y="48.529015"
+     rx="3.31791"
+     ry="4.2994399" />
+</svg>

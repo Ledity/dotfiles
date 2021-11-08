@@ -27,13 +27,13 @@ awful.spawn("pkill nm-applet")
 awful.spawn("pkill blueman-applet")
 awful.spawn("pkill loloswitcher")
 awful.spawn("xbindkeys -p")
-awful.spawn("xinput set-prop 'ELAN2602:00 04F3:3109 Touchpad' 299 1")
 awful.spawn("nm-applet")
 awful.spawn("blueman-applet")
 awful.spawn("picom")
 awful.spawn("nitrogen --restore")
 awful.spawn("pulsemixer --get-volume")
 awful.spawn("loloswitcher")
+awful.spawn("emacs --daemon")
 -- }}}
 
 -- {{{ Error handling
@@ -75,7 +75,7 @@ musicplayer = terminal .. " -e cmus"
 proglauncher = "rofi -show drun"
 winchooser = "rofi -show window"
 runpromt = "rofi -show run"
-editor_cmd = terminal .. " -e " .. editor
+editor_cmd =  'emacsclient -c -a "emacs"'
 
 -- Tag names
 
@@ -238,19 +238,32 @@ local ledkernel = wibox.widget {
 
 -- Volume widget
 local vol_buttons = gears.table.join(
-                    awful.button({ }, 1, function()  awful.spawn("pulsemixer --toggle-mute") end),
+                    awful.button({ }, 1, function()  awful.spawn(terminal .. " -e pulsemixer") end),
                     awful.button({ }, 2, function()  awful.spawn("pulsemixer --toggle-mute") end),
-                    awful.button({ }, 3, function()  awful.spawn("pulsemixer --toggle-mute") end),
-                    awful.button({ }, 4, function()  awful.spawn("pulsemixer --change-volume -5") end),
-                    awful.button({ }, 5, function()  awful.spawn("pulsemixer --change-volume +5") end)
+                    awful.button({ }, 3, function()  awful.spawn(terminal .. " -e pulsemixer") end),
+                    awful.button({ }, 4, function()  awful.spawn("pulsemixer --change-volume +5") end),
+                    awful.button({ }, 5, function()  awful.spawn("pulsemixer --change-volume -5") end)
                 )
 local ledvolume = {
     {
+        {
+            markup = '  ',
+            widget = wibox.widget.textbox,
+        },
+        {
+            {
+                font   = "FontAwesome5 Free Solid",
+                widget = awful.widget.watch("/home/ledity/.config/awesome/scripts/vol.sh", 1),
+            },
+            fg     = beautiful.salad,
+            widget = wibox.container.background,
+        },
         lain.widget.pulse {
-            timeout = 1,
+            timeout = 0.5,
             devicetype = "sink",
+            cmd = "pulsemixer --list-sinks | grep 'Default'",
             settings = function()
-                vol = tonumber(volume_now.left)
+                vol = tonumber(volume_now.left) or 10
                 icon = "<span foreground = '" .. beautiful.salad .. "' font_family='FontAwesome5 Free Solid'></span>"
                 if volume_now.muted == "no" then
                     if     vol < 25 then
@@ -261,10 +274,11 @@ local ledvolume = {
                         icon = "<span foreground = '" .. beautiful.salad .. "' font_family='FontAwesome5 Free Solid'></span>"
                     end
                 end
-                widget:set_markup("  " .. icon .. " : " .. vol .. " %  ")
+                widget:set_markup(" : " .. vol .. " %  ")
             end,
             buttons = vol_buttons,
         },
+        buttons = vol_buttons,
         layout = wibox.layout.fixed.horizontal,
     },
     shape  = gears.shape.rounded_bar,
@@ -279,8 +293,8 @@ local brightness_buttons = gears.table.join(
                     awful.button({ }, 1, function()  awful.spawn("brightnessctl s 100%") end),
                     awful.button({ }, 2, function()  awful.spawn("brightnessctl s 30%") end),
                     awful.button({ }, 3, function()  awful.spawn("brightnessctl s 0%") end),
-                    awful.button({ }, 4, function()  awful.spawn("brightnessctl s 5%-") end),
-                    awful.button({ }, 5, function()  awful.spawn("brightnessctl s 5%+") end)
+                    awful.button({ }, 4, function()  awful.spawn("brightnessctl s 5%+") end),
+                    awful.button({ }, 5, function()  awful.spawn("brightnessctl s 5%-") end)
                 )
 local ledbrightness = {
     {
@@ -893,8 +907,16 @@ globalkeys = gears.table.join(
                         end
                         awful.spawn(terminal) end,
               {description = "open a terminal on tag 2", group = "launcher"}),
-    awful.key({ modkey, "Shift"   }, "Return", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
+
+              -- Editor
+    awful.key({ modkey, "Shift"   }, "Return", function ()
+                        local screen = awful.screen.focused()
+                        local tag = screen.tags[2]
+                        if tag then
+                           tag:view_only()
+                        end
+                        awful.spawn(editor_cmd) end,
+              {description = "open a editor on tag 2", group = "launcher"}),
 
               -- Browser
     awful.key({ modkey,           }, "b", function ()

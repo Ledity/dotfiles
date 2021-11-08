@@ -119,7 +119,7 @@ font:
     family: MesloLGS NF
     style: Bold Italic
 
-  size: 12.0
+  size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -154,18 +154,18 @@ schemes:
 
   # Normal colors
     normal:
-      black:      '#000000'
+      black:      '#323232'
       red:        '#ff5454'
       green:      '#54ff54'
       yellow:     '#ffff54'
       blue:       '#5454ff'
       magenta:    '#ff54ff'
       cyan:       '#54ffff'
-      white:      '#ededed'
+      white:      '#cecece'
 
   # Bright colors
     bright:
-      black:      '#090909'
+      black:      '#545454'
       red:        '#ff0000'
       green:      '#00ff00'
       yellow:     '#ffff00'
@@ -239,7 +239,7 @@ schemes:
   #
   #indexed_colors: []
 
-  aritim-dark: &aritim
+  led: &led
     primary:
       background: '#141a21'
       foreground: '#ffffff'
@@ -267,17 +267,6 @@ schemes:
       cyan:       '#54ffff'
       white:      '#ffffff'
 
-  # Bright colors
-    dim:
-      black:      '#10151a'
-      red:        '#782b3f'
-      green:      '#2b782b'
-      yellow:     '#78512b'
-      blue:       '#2b5278'
-      magenta:    '#3e2b78'
-      cyan:       '#2b5278'
-      white:      '#656565'
-
   # Cursor
   cursor:
     text: CellBackground
@@ -302,8 +291,109 @@ schemes:
     { index: 16, color: '#141a21' }
   ]
 
-  # colors: *aritim
-colors: *aritim
+  # colors: *led
+  
+
+  breeze: &breeze
+    primary:
+      background: '#1b1e20'
+      foreground: '#ffffff'
+
+
+  # Normal colors
+    normal:
+      black:      '#2a2e32'
+      red:        '#e25270'
+      green:      '#52e258'
+      yellow:     '#e2c552'
+      blue:       '#5294e2'
+      magenta:    '#e252dc'
+      cyan:       '#52e2c4'
+      white:      '#cecece'
+
+  # Bright colors
+    bright:
+      black:      '#232629'
+      red:        '#ff5454'
+      green:      '#54ff54'
+      yellow:     '#ffff54'
+      blue:       '#5454ff'
+      magenta:    '#ff54ff'
+      cyan:       '#54ffff'
+      white:      '#ffffff'
+
+  # Cursor
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+
+  # Vi-mode cursor
+  vi_mode_cursor:
+    text: CellForeground
+    cursor: CellBackground
+
+  # Indexed Colors
+  #
+  # The indexed colors include all colors from 16 to 256.
+  # When these are not set, they're filled with sensible defaults.
+  #
+  # Example:
+  #   `- { index: 16, color: '#ff00ff' }`
+  #
+  #indexed_colors: []
+
+  # colors: *breeze
+  
+  brise: &brise
+    primary:
+      background: '#1a1c20'
+      foreground: '#ffffff'
+
+
+  # Normal colors
+    normal:
+      black:      '#232629'
+      red:        '#e25270'
+      green:      '#52e258'
+      yellow:     '#e2c552'
+      blue:       '#5294e2'
+      magenta:    '#e252dc'
+      cyan:       '#52e2c4'
+      white:      '#cecece'
+
+  # Bright colors
+    bright:
+      black:      '#3f4044'
+      red:        '#ff5454'
+      green:      '#54ff54'
+      yellow:     '#ffff54'
+      blue:       '#5454ff'
+      magenta:    '#ff54ff'
+      cyan:       '#54ffff'
+      white:      '#ffffff'
+
+  # Cursor
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+
+  # Vi-mode cursor
+  vi_mode_cursor:
+    text: CellForeground
+    cursor: CellBackground
+
+  # Indexed Colors
+  #
+  # The indexed colors include all colors from 16 to 256.
+  # When these are not set, they're filled with sensible defaults.
+  #
+  # Example:
+  #   `- { index: 16, color: '#ff00ff' }`
+  #
+  #indexed_colors: []
+
+  # colors: *brise
+colors: *led
 
 # Bell
 #

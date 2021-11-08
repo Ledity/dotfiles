@@ -72,21 +72,21 @@ opacity-rule = [
 #     Background-Blurring       #
 #################################
 
-blur: {
-	method = "dual_kawase";
-    strength = 8.0;
-}
+# blur: {
+# 	method = "dual_kawase";
+#     strength = 1.0;
+# }
 
-blur-background = true;
-blur-background-frame = true;
-blur-background-fixed = true;
+# blur-background = true;
+# blur-background-frame = true;
+# blur-background-fixed = true;
 
-blur-background-exclude = [
-	"class_g = 'slop'",
-	"_GTK_FRAME_EXTENTS@:c",
-    "class_g = 'kdeconnect'",
-    "class_g = 'firefox'"
-];
+# blur-background-exclude = [
+# 	"class_g = 'slop'",
+# 	"_GTK_FRAME_EXTENTS@:c",
+#     "class_g = 'kdeconnect'",
+#     "class_g = 'firefox'"
+# ];
 
 #################################
 #       General Settings        #

@@ -113,10 +113,11 @@ source $ZSH/oh-my-zsh.sh
 # export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
 
 # aliases
-alias ls="exa --color=always --group-directories-first"
-alias sl="exa --color=always --group-directories-first"
-alias la="exa --color=always --group-directories-first -la"
+alias ls="exa --color=always --group-directories-first -l"
+alias sl="exa --color=always --group-directories-first -l"
+alias la="exa --color=always --group-directories-first"
 alias rm="rm -i"
+alias vi="vim"
 alias cm="cmatrix -b"
 alias fm="ranger"
 alias pac="sudo aura"
@@ -127,6 +128,8 @@ alias rtop="radeontop -c"
 alias reb="reboot"
 alias celar="clear"
 alias clera="clear"
+alias claer="clear"
+alias ="echo i use arch btw"
 alias sdstart="systemctl start"
 alias sdstop="systemctl stop"
 alias sdstat="systemctl status"

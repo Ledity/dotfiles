@@ -390,7 +390,9 @@ schemes:
   # Example:
   #   `- { index: 16, color: '#ff00ff' }`
   #
-  #indexed_colors: []
+  indexed_colors: [
+      {index: 130, color: '#974932'}
+  ]
 
   # colors: *brise
 colors: *led

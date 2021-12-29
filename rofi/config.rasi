@@ -17,14 +17,13 @@ configuration {
     lighter:                    #141a2185;
     light:                      #172a3d;
     accent:                     #5294e2;
-    extra:                      #52e2c4;
+    extra:                      #e2c552;
     alert:                      #e25270; 
 }
 
 #window {
     background-color: @dark;
     border:           5;
-    border-radius:    10;
     border-color:     @accent;
     padding:          0px 0px 0px;
     width:            30%;

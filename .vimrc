@@ -40,6 +40,7 @@ Plugin 'frazrepo/vim-rainbow'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-commentary'
+Plugin 'ycm-core/YouCompleteMe'
 
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
@@ -105,7 +106,7 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 
 " Enabling vim-rainbow in c, cpp, objc and abjcpp
 
-au FileType c,cpp,objc,objcpp call rainbow#load()
+au FileType c,cpp,objc,objcpp,hs call rainbow#load()
 
 " Powerline plugin config
 " The colorscheme for lightline.vim.

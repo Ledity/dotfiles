@@ -12,8 +12,9 @@ local themes_path = gfs.get_themes_dir()
 local theme = {}
 
 theme.font = "MesloLGS NF 11"
+theme.iconfont = "FontAwesome5 Free Solid 10"
 
-theme.dark    = "#10151ad9"
+theme.dark    = "#10151a"
 theme.lighter = "#141a21"
 theme.light   = "#172a3d"
 
@@ -32,22 +33,28 @@ theme.bluish = "#5454ff"
 theme.purple = "#7c52e2"
 theme.pink   = "#e252dc"
 
+-- Default colors
+
 theme.bg_normal   = theme.dark
 theme.bg_focus    = theme.blue
 theme.bg_urgent   = theme.red
 theme.bg_minimize = theme.lighter
 
-theme.fg_normal   = theme.white
+theme.fg_normal   = theme.gray
 theme.fg_focus    = theme.white
 theme.fg_urgent   = theme.white
 theme.fg_minimize = theme.white
 
-theme.useless_gap   = dpi(5)
-theme.border_width  = dpi(4)
+-- Window border
+
+theme.useless_gap   = dpi (5)
+theme.border_width  = dpi (4)
 theme.border_color  = theme.white
 theme.border_normal = theme.dark
 theme.border_focus  = theme.blue
 theme.border_marked = theme.red
+
+-- Taglist
 
 -- theme.taglist_bg_occupied = theme.yellow
 -- theme.taglist_fg_occupied = theme.white
@@ -61,7 +68,7 @@ theme.taglist_fg_focus    = theme.blue
 theme.taglist_bg_occupied = theme.dark
 theme.taglist_fg_occupied = theme.yellow
 theme.taglist_bg_empty    = theme.dark
-theme.taglist_fg_empty    = theme.white
+theme.taglist_fg_empty    = theme.gray
 theme.taglist_bg_urgent   = theme.dark
 theme.taglist_fg_urgent   = theme.red
 
@@ -77,21 +84,26 @@ theme.tasklist_fg_urgent   = theme.red
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:
--- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
 -- tasklist_[bg|fg]_[focus|urgent]
 -- titlebar_[bg|fg]_[normal|focus]
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
 -- prompt_[fg|bg|fg_cursor|bg_cursor|font]
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
--- Example:
---theme.taglist_bg_focus = "#ff0000"
 
--- Variables set for theming notifications:
--- notification_font
--- notification_[bg|fg]
--- notification_[width|height|margin]
--- notification_[border_color|border_width|shape|opacity]
+-- Notifications
+
+theme.notification_font   = theme.font
+theme.notification_bg     = theme.dark .. "d9"
+theme.notification_fg     = theme.gray
+theme.notification_margin = dpi (4)
+theme.notification_width  = 500
+theme.notification_maxheight = 100
+theme.notification_border_color = theme.blue
+theme.notification_icon_size = 50
+
+-- Tasklist
+
 theme.tasklist_disable_task_name  = false
 theme.tasklist_plain_task_name    = false
 theme.tasklist_sticky             = " "
@@ -108,13 +120,8 @@ theme.tasklist_maximized_horizontal = " "
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path.."default/submenu.png"
-theme.menu_height       = dpi(15)
-theme.menu_width        = dpi(100)
-
--- You can add as many variables as
--- you wish and access them by using
--- beautiful.variable in your rc.lua
---theme.bg_widget = "#cc0000"
+theme.menu_height       = dpi (15)
+theme.menu_width        = dpi (100)
 
 -- Define the image to load
 theme.titlebar_close_button_normal = themes_path.."default/titlebar/close_normal.png"
@@ -171,7 +178,7 @@ theme.awesome_icon = theme_assets.awesome_icon(
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = "/usr/share/icons/Qogir-dark"
+-- theme.icon_theme = "/usr/share/icons/Qogir-dark"
 
 return theme
 

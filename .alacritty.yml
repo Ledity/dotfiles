@@ -505,7 +505,8 @@ cursor:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /home/ledity/.dotfiles/start_tmux/start_tmux.sh
+  program: zsh
+  # program: /home/ledity/.dotfiles/start_tmux/start_tmux.sh
 #  args:
 #    - --login
 

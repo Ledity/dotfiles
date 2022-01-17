@@ -17,6 +17,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
+
 # ZSH_THEME="bira"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 POWERLEVEL9K_MODE="nerdfont-complete"
@@ -109,18 +110,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# "vim" as manpager
-# export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
-
 # aliases
 alias ls="exa --color=always --group-directories-first -l"
 alias sl="exa --color=always --group-directories-first -l"
-alias la="exa --color=always --group-directories-first"
 alias rm="rm -i"
 alias vi="vim"
 alias cm="cmatrix -b"
 alias fm="ranger"
-alias pac="sudo aura"
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 alias tmuxconf="vim ~/.tmux.conf"
@@ -138,7 +134,7 @@ alias sddisab="systemctl disable"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.emacs.d/bin/:$PATH
 export EDITOR=vim
 export inf=/home/ledity/Study/Sem-1/Informatics
 export eng=/home/ledity/Study/Sem-1/English

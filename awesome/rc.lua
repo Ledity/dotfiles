@@ -14,7 +14,10 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
+local appmenu = require("appmenu")
 local hotkeys_popup = require("awful.hotkeys_popup")
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -29,7 +32,7 @@ awful.spawn("pkill flameshot")
 awful.spawn("pkill nm-applet")
 awful.spawn("pkill blueman-applet")
 awful.spawn("pkill loloswitcher")
-awful.spawn("pkill xbindkeys -p")
+awful.spawn("pkill xbindkeys")
 awful.spawn("pkill loloswitcher")
 awful.spawn("pkill emacs --daemon")
 
@@ -43,6 +46,18 @@ awful.spawn("loloswitcher")
 awful.spawn("nitrogen --restore")
 awful.spawn("pulsemixer --get-volume")
 awful.spawn("emacs --daemon")
+
+-- }}}
+
+-- {{{ Naughty defaults
+
+naughty.config.defaults = {
+    timeout = 5,
+    text    = 'text',
+    ontop   = true,
+    border_width = dpi (4),
+    position     = 'top_right',
+}
 
 -- }}}
 
@@ -77,7 +92,7 @@ beautiful.init(HOME .. ".config/awesome/theme.lua")
 
 -- Default progs
 terminal = "alacritty"
-editor = "vim"
+editor = 'emacsclient -c -a "emacs"'
 browser = "firefox"
 filemanager = "pcmanfm-qt"
 calculator = "qalculate-qt"
@@ -126,22 +141,15 @@ awful.layout.layouts = {
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
-ledawesomemenu = {
-    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-    { "manual", terminal .. " -e man awesome" },
-    { "edit config", editor_cmd .. " " .. awesome.conffile },
-    { "restart", awesome.restart },
-    { "quit", function() awesome.quit() end },
-}
 
-beautiful.menu_width = 280
 ledmainmenu = awful.menu({
     items = {
-        { " awesome",         ledawesomemenu},
-        { " open browser",          browser},
-        { " open  terminal",        terminal},
-        { " open file manager", filemanager},
-        { " open calculator",    calculator},
+        { "apps", appmenu.Appmenu },
+        { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+        { "manual", terminal .. " -e man awesome" },
+        { "edit config", editor_cmd .. " " .. awesome.conffile },
+        { "restart", awesome.restart },
+        { "quit", function() awesome.quit() end },
     }
 })
 
@@ -163,17 +171,16 @@ local brightness_buttons = gears.table.join(
                     awful.button({ }, 4, function()  awful.spawn("brightnessctl s 17+") end),
                     awful.button({ }, 5, function()  awful.spawn("brightnessctl s 17-") end)
                 )
-local space = " "
 local ledbrightness = {
     {
-        markup  = ' <span foreground="' .. beautiful.orange .. '" font = "FontAwesome5 Free Solid 10"></span> ',
-        -- markup  = ' <span font = "FontAwesome5 Free Solid 10"></span> ',
+        markup  = ' <span foreground="' .. beautiful.orange .. '" font = "' .. beautiful.iconfont .. '"></span> ',
+        -- markup  = ' <span font = "' .. beautiful.iconfont .. '"></span> ',
         widget  = wibox.widget.textbox,
         buttons = brightness_buttons,
     },
     {
-        widget  = awful.widget.watch('bash -c ~/.config/awesome/scripts/br.sh', 0.25),
-        buttons = brightness_buttons,
+        widget = awful.widget.watch('bash -c ~/.config/awesome/scripts/br.sh', 0.25),
+        buttons      = brightness_buttons,
     },
     {
         markup  = '% ',
@@ -201,11 +208,11 @@ local ledvolume = {
             icon = "N/A"
 
             if vol >= 75 then
-                icon = '<span foreground="' .. beautiful.salad .. '" font = "FontAwesome5 Free Solid 10"></span>'
+                icon = '<span foreground="' .. beautiful.salad .. '" font = "' .. beautiful.iconfont .. '"></span>'
             elseif vol >= 25 then
-                icon = '<span foreground="' .. beautiful.salad .. '" font = "FontAwesome5 Free Solid 10"></span>'
+                icon = '<span foreground="' .. beautiful.salad .. '" font = "' .. beautiful.iconfont .. '"></span>'
             else
-                icon = '<span foreground="' .. beautiful.salad .. '" font = "FontAwesome5 Free Solid 10"></span>'
+                icon = '<span foreground="' .. beautiful.salad .. '" font = "' .. beautiful.iconfont .. '"></span>'
             end
 
             widget:set_markup(" " .. icon .. " " .. vol .. "% ")
@@ -218,10 +225,8 @@ local ledvolume = {
 -- Keyboard map indicator and switcher
 local ledkeyboardlayout = {
         {
-            markup = ' <span foreground="' .. beautiful.blue .. '" font = "FontAwesome5 Free Solid 10"></span>',
-            -- markup = ' <span font = "FontAwesome5 Free Solid 10"></span>',
-            align  = 'center',
-            valign = 'center',
+            markup = ' <span foreground="' .. beautiful.blue .. '" font = "' .. beautiful.iconfont .. '"></span>',
+            -- markup = ' <span font = "' .. beautiful.iconfont .. '"></span>',
             widget = wibox.widget.textbox,
         },
         {
@@ -232,13 +237,13 @@ local ledkeyboardlayout = {
 
 -- CPU widget
 local cpu_buttons = gears.table.join(
-                    awful.button({ }, 1, function()  awful.spawn(terminal .. " -e htop") end),
-                    awful.button({ }, 3, function()  awful.spawn(terminal .. " -e radeontop -c") end)
+                    awful.button({ }, 1, function()  awful.spawn(terminal .. " -e htop", { floating = true }) end),
+                    awful.button({ }, 3, function()  awful.spawn(terminal .. " -e radeontop -c", { floating = true }) end)
                 )
 local ledcpu = wibox.widget {
     {
-        markup  = ' <span foreground="' .. beautiful.red .. '" font = "FontAwesome5 Free Solid 10"></span> ',
-        -- markup  = ' <span font = "FontAwesome5 Free Solid 10"></span> ',
+        markup  = ' <span foreground="' .. beautiful.red .. '" font = "' .. beautiful.iconfont .. '"></span> ',
+        -- markup  = ' <span font = "' .. beautiful.iconfont .. '"></span> ',
         widget = wibox.widget.textbox,
     },
     lain.widget.cpu {
@@ -267,30 +272,27 @@ local ledmem = wibox.widget {
 
 -- Battery widget
 local ledbattery = wibox.widget {
-    {
-        lain.widget.bat {
-            battery = "BAT0",
-            settings = function()
-                if     bat_now.status == "Discharging" then
-                    status = "<span foreground='" .. beautiful.green .. "' font_family='FontAwesome5 Free Solid'></span>"
-                    -- status = "bat"
-                elseif bat_now.status >= "Charging"    then
-                    status = "<span foreground='" .. beautiful.green .. "' font_family='FontAwesome5 Free Solid'></span>"
-                    -- status = "a/c"
-                elseif bat_now.status >= "Full"        then
-                    status = "<span foreground='" .. beautiful.green .. "' font_family='FontAwesome5 Free Solid'></span>"
-                    -- status = "ful"
-                else
-                    status = "<span foreground='" .. beautiful.green .. "' font_family='FontAwesome5 Free Solid'></span>"
-                    -- status = "N/A"
-                end
-
-                widget:set_markup(" " .. status .. " " .. bat_now.perc .. "% ")
+    lain.widget.bat {
+        battery = "BAT0",
+        settings = function()
+            if     bat_now.status == "Discharging" then
+                status = "<span foreground='" .. beautiful.green .. "' font_family='FontAwesome5 Free Solid'></span>"
+                -- status = "bat"
+            elseif bat_now.status >= "Charging"    then
+                status = "<span foreground='" .. beautiful.green .. "' font_family='FontAwesome5 Free Solid'></span>"
+                -- status = "a/c"
+            elseif bat_now.status >= "Full"        then
+                status = "<span foreground='" .. beautiful.green .. "' font_family='FontAwesome5 Free Solid'></span>"
+                -- status = "ful"
+            else
+                status = "<span foreground='" .. beautiful.green .. "' font_family='FontAwesome5 Free Solid'></span>"
+                -- status = "N/A"
             end
-        },
-        layout = wibox.layout.fixed.horizontal,
+
+            widget:set_markup(" " .. status .. " " .. bat_now.perc .. "% ")
+        end
     },
-    widget = wibox.container.background,
+    layout = wibox.layout.fixed.horizontal,
     buttons = cpu_buttons,
 }
 
@@ -404,7 +406,7 @@ awful.screen.connect_for_each_screen(function(s)
         prompt = "$ ",
         shape  = gears.shape.rounded_bar,
         bg     = beautiful.light,
-        font   = "MesloLGS NF 12",
+        font   = beautiful.font,
     }
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
@@ -421,7 +423,7 @@ awful.screen.connect_for_each_screen(function(s)
         filter  = awful.widget.taglist.filter.all,
         buttons = taglist_buttons,
         style   = {
-            font  = "MesloLGS NF 11",
+            font  = beautiful.font,
         },
         layout  = {
             spacing = 36,
@@ -504,8 +506,6 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 
-
-
     -- Create the wibox
     s.topwibar = awful.wibar({ position = "top", height = 26, screen = s })
 
@@ -529,44 +529,31 @@ awful.screen.connect_for_each_screen(function(s)
             },
             layout = wibox.layout.fixed.horizontal,
         },
-        { -- Middle widgets
-
+        nil,
+        {
+            { -- Right widgets
+                ledbrightness,
+                ledvolume,
+                ledkeyboardlayout,
+                ledcpu,
+                ledmem,
+                ledbattery,
+                ledtray,
+                spacing = 12,
+                spacing_widget = {
+                    {
+                        markup  = '|',
+                        widget = wibox.widget.textbox,
+                    },
+                    valign = "center",
+                    halign = "center",
+                    widget = wibox.container.place,
+                },
+                layout = wibox.layout.fixed.horizontal,
+            },
+            ledtextclock,
             layout = wibox.layout.fixed.horizontal,
         },
-        {
-            {
-                layout = wibox.layout.fixed.horizontal,
-            },
-            {
-                layout = wibox.layout.fixed.horizontal,
-            },
-            {
-                { -- Right widgets
-                    ledbrightness,
-                    ledvolume,
-                    ledkeyboardlayout,
-                    ledcpu,
-                    ledmem,
-                    ledbattery,
-                    ledtray,
-                    spacing = 12,
-                    spacing_widget = {
-                        {
-                            markup  = '|',
-                            widget = wibox.widget.textbox,
-                        },
-                        valign = "center",
-                        halign = "center",
-                        widget = wibox.container.place,
-                    },
-                    layout = wibox.layout.fixed.horizontal,
-                },
-                ledtextclock,
-                layout = wibox.layout.fixed.horizontal,
-            },
-            layout = wibox.layout.align.horizontal,
-        },
-        expand = "outside",
         layout = wibox.layout.align.horizontal,
     }
     else
@@ -768,7 +755,11 @@ globalkeys = gears.table.join(
                         if tag then
                            tag:view_only()
                         end
-                        awful.spawn(calculator) end,
+                        awful.spawn(calculator, {
+                            floating = true,
+                            ontop    = true,
+                            tag      = mouse.screen.selected_tag,
+                        }) end,
               {description = "open a calculator on tag 3", group = "launcher"}),
     awful.key({ modkey, "Shift"   }, "c", function () awful.spawn(calculator) end,
               {description = "open a calculator", group = "launcher"}),
@@ -794,44 +785,12 @@ globalkeys = gears.table.join(
                         end
                         awful.spawn(musicplayer) end,
               {description = "open a music player on tag 5", group = "launcher"}),
-    awful.key({ modkey, "Shift"   }, "m", function () awful.spawn(musicplayer) end,
-              {description = "open a music player", group = "launcher"}),
 
               -- Screenshot manager
     awful.key({                   }, "Print", function () awful.spawn(screenshot_gui) end,
               {description = "open spectacle", group = "launcher"}),
     awful.key({ modkey,           }, "Print", function () awful.spawn(screenshot) end,
               {description = "take a screenshot with spectacle", group = "launcher"}),
-
-              -- Gimp
-    awful.key({ modkey,           }, "v", function ()
-                        local screen = awful.screen.focused()
-                        local tag = screen.tags[6]
-                        if tag then
-                           tag:view_only()
-                        end
-                        awful.spawn("gimp") end,
-              {description = "open Gimp on tag 6", group = "launcher"}),
-
-              -- Kdenlive
-    awful.key({ modkey, "Control" }, "v", function ()
-                        local screen = awful.screen.focused()
-                        local tag = screen.tags[6]
-                        if tag then
-                           tag:view_only()
-                        end
-                        awful.spawn("kdenlive") end,
-              {description = "open Kdenlive on tag 6", group = "launcher"}),
-
-              -- Inkscape
-    awful.key({ modkey, "Shift"   }, "v", function ()
-                        local screen = awful.screen.focused()
-                        local tag = screen.tags[6]
-                        if tag then
-                           tag:view_only()
-                        end
-                        awful.spawn("inkscape") end,
-              {description = "open Inkscape on tag 6", group = "launcher"}),
 
               -- Steam
     awful.key({ modkey,           }, "g", function ()
@@ -842,16 +801,6 @@ globalkeys = gears.table.join(
                         end
                         awful.spawn("steam") end,
               {description = "open Steam on tag 7", group = "launcher"}),
-
-              -- VirtualBox
-    awful.key({ modkey,           }, "x", function ()
-                        local screen = awful.screen.focused()
-                        local tag = screen.tags[8]
-                        if tag then
-                           tag:view_only()
-                        end
-                        awful.spawn("virtualbox") end,
-              {description = "open VirtualBox on tag 8", group = "launcher"}),
 
     awful.key({ modkey, "Shift"   }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -900,7 +849,7 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-    awful.key({ modkey            }, "q",      function (c) c:kill()                         end,
+    awful.key({ modkey,           }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey            }, "e",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
@@ -1048,6 +997,7 @@ awful.rules.rules = {
         instance = {
           "DTA",  -- Firefox addon DownThemAll.
           "copyq",  -- Includes session name in class.
+          "qalculate-qt",
           "pinentry",
         },
         class = {
@@ -1078,6 +1028,13 @@ awful.rules.rules = {
     -- { rule_any = { type = { "normal", "dialog" }
         -- }, properties = { titlebars_enabled = true }
     -- },
+
+    -- Qalculate-Qt floating and above
+    { rule_any = {
+        instance = {
+          "qalculate-qt",
+        },
+      }, properties = { floating = true, above = true, }},
 
 }
 -- }}}

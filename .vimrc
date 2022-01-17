@@ -88,7 +88,6 @@ set exrc
 set secure
 
 set nrformats+=alpha
-noremap <C-b> <C-a>
 
 " Disabling YCM's syntax checking and popups
 

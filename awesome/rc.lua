@@ -106,14 +106,15 @@ editor_cmd = 'emacsclient -c -a "emacs"'
 
 -- Tag names
 
-t1 = "web"
-t2 = "term"
-t3 = "sys"
-t4 = "doc"
-t5 = "mus"
-t6 = "work"
-t7 = "game"
-t8 = "etc" 
+t1 = "  "
+t2 = ""
+t3 = ""
+t4 = ""
+t5 = ""
+t6 = ""
+t7 = ""
+t8 = ""
+t9 = "  "
 
 -- Default modkey.
 modkey = "Mod4"
@@ -316,27 +317,115 @@ local ledtray = {
     layout = wibox.layout.fixed.horizontal,
 }
 
--- Textclock widget
-local ledtextclock = wibox.widget {
+
+local rounded_rect = function(cr, width, height)
+    gears.shape.rounded_rect(cr, width, 40, 10)
+end
+
+local kblayout = {
+    ledkeyboardlayout,
+
+    bg = beautiful.dark,
+    shape = rounded_rect,
+    widget = wibox.container.background,
+}
+
+local performance = {
+    {
+        ledcpu,
+        ledmem,
+
+        layout = wibox.layout.fixed.horizontal,
+        spacing = 12,
+        spacing_widget = {
+            {
+                markup  = '|',
+                widget = wibox.widget.textbox,
+            },
+            valign = "center",
+            halign = "center",
+            widget = wibox.container.place,
+        },
+    },
+    bg = beautiful.dark,
+    shape = rounded_rect,
+    widget = wibox.container.background,
+}
+
+local values = {
+    {
+        ledvolume,
+        ledbrightness,
+        ledbattery,
+
+        layout = wibox.layout.fixed.horizontal,
+        spacing = 12,
+        spacing_widget = {
+            {
+                markup  = '|',
+                widget = wibox.widget.textbox,
+            },
+            valign = "center",
+            halign = "center",
+            widget = wibox.container.place,
+        },
+    },
+    bg = beautiful.dark,
+    shape = rounded_rect,
+    widget = wibox.container.background,
+}
+
+local tray = {
+    {
+        ledtray,
+
+        widget = wibox.container.place,
+    },
+    bg = beautiful.dark,
+    fg = beautiful.sizy,
+    shape = rounded_rect,
+    widget = wibox.container.background,
+}
+
+local clock = {
     {
         {
-            format = ' %d.%m.%Y ',
-            widget = wibox.widget.textclock
+            {
+                markup = ' <span foreground="' .. beautiful.pink .. '" font = "' .. beautiful.iconfont .. '"></span> ',
+                widget = wibox.widget.textbox,
+            },
+            {
+                format = '%d.%m.%Y ',
+                widget = wibox.widget.textclock
+            },
+            layout = wibox.layout.fixed.horizontal,
         },
-        fg     = beautiful.cyan,
-        bg     = beautiful.light,
-        widget = wibox.widget.background,
-    },
-    {
         {
-            format = ' %H:%M ',
-            widget = wibox.widget.textclock
+            {
+                markup = ' <span foreground="' .. beautiful.purple .. '" font = "' .. beautiful.iconfont .. '"></span> ',
+                widget = wibox.widget.textbox,
+            },
+            {
+                format = '%H:%M ',
+                widget = wibox.widget.textclock
+            },
+            layout = wibox.layout.fixed.horizontal,
         },
-        fg     = beautiful.dark,
-        bg     = beautiful.blue,
-        widget = wibox.widget.background,
+        layout = wibox.layout.fixed.horizontal,
+        spacing = 12,
+        spacing_widget = {
+            {
+                markup  = '|',
+                widget = wibox.widget.textbox,
+            },
+            valign = "center",
+            halign = "center",
+            widget = wibox.container.place,
+        },
     },
-    layout = wibox.layout.fixed.horizontal,
+    bg = beautiful.dark,
+    shape = rounded_rect,
+    widget = wibox.container.background,
 }
 
 -- Create a wibox for each screen and add it
@@ -352,9 +441,7 @@ local taglist_buttons = gears.table.join(
                                               if client.focus then
                                                   client.focus:toggle_tag(t)
                                               end
-                                          end),
-                    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-                    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
+                                          end)
                 )
 
 local tasklist_buttons = gears.table.join(
@@ -371,12 +458,6 @@ local tasklist_buttons = gears.table.join(
                                           end),
                      awful.button({ }, 3, function()
                                               awful.menu.client_list({ theme = { width = 250 } })
-                                          end),
-                     awful.button({ }, 4, function ()
-                                              awful.client.focus.byidx(1)
-                                          end),
-                     awful.button({ }, 5, function ()
-                                              awful.client.focus.byidx(-1)
                                           end))
 
 local function set_wallpaper(s)
@@ -395,11 +476,12 @@ end
 screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
+
     -- Wallpaper
     -- set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ t1, t2, t3, t4, t5, t6, t7, t8 }, s, awful.layout.layouts[1])
+    awful.tag({ t1, t2, t3, t4, t5, t6, t7, t8, t9 }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.ledpromptbox = awful.widget.prompt {
@@ -417,36 +499,46 @@ awful.screen.connect_for_each_screen(function(s)
                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(-1) end)))
 
-    -- Create a taglist widget
-    s.ledtaglist    = awful.widget.taglist {
-        screen  = s,
-        filter  = awful.widget.taglist.filter.all,
-        buttons = taglist_buttons,
-        style   = {
-            font  = beautiful.font,
+    s.layoutbox = {
+        {
+            s.ledlayoutbox,
+
+            forced_hight = 26,
+            widget = wibox.container.place,
         },
-        layout  = {
-            spacing = 36,
-            spacing_widget = {
+
+        bg = beautiful.dark,
+        shape = rounded_rect,
+        widget = wibox.container.background,
+    }
+
+    -- Create a taglist widget
+    s.ledtaglist    = {
+        awful.widget.taglist {
+            screen  = s,
+            filter  = awful.widget.taglist.filter.all,
+            buttons = taglist_buttons,
+            style   = {
+                font = beautiful.iconfont,
+            },
+            layout  = {
+                spacing = 24,
+                layout  = wibox.layout.fixed.horizontal
+            },
+            widget_template = {
                 {
-                    markup  = ' | ',
+                    id     = "text_role",
+                    align  = "center",
+                    forced_height = 26,
                     widget = wibox.widget.textbox,
                 },
-                valign = "center",
-                halign = "center",
-                widget = wibox.container.place,
+                id     = "background_role",
+                widget = wibox.container.background,
             },
-            layout  = wibox.layout.fixed.horizontal
         },
-        widget_template = {
-            {
-                id     = "text_role",
-                align  = "center",
-                widget = wibox.widget.textbox,
-            },
-            id           = "background_role",
-            widget       = wibox.container.background,
-        },
+        bg = beautiful.dark,
+        shape = rounded_rect,
+        widget = wibox.container.background,
     }
 
     -- Create a tasklist widget
@@ -507,112 +599,66 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.topwibar = awful.wibar({ position = "top", height = 26, screen = s })
+    s.topwibar = awful.wibar({ position = "top", height = 40, screen = s })
 
     -- Add widgets to the wibox
     if s == screen[1] then
     s.topwibar:setup {
         { -- Left widgets
-            s.ledtaglist,
-
-            spacing = 10,
-            spacing_widget = {
-                {
-                    forced_width = 12,
-                    shape         = gears.shape.partially_rounded_rect,
-                    color        = beautiful.light,
-                    widget       = wibox.widget.separator
-                },
-                valign = "center",
-                halign = "center",
-                widget = wibox.container.place,
-            },
-            layout = wibox.layout.fixed.horizontal,
-        },
-        nil,
-        {
-            { -- Right widgets
-                ledbrightness,
-                ledvolume,
-                ledkeyboardlayout,
-                ledcpu,
-                ledmem,
-                ledbattery,
-                ledtray,
-                spacing = 12,
-                spacing_widget = {
-                    {
-                        markup  = '|',
-                        widget = wibox.widget.textbox,
-                    },
-                    valign = "center",
-                    halign = "center",
-                    widget = wibox.container.place,
-                },
+            {
                 layout = wibox.layout.fixed.horizontal,
             },
-            ledtextclock,
+            s.ledtaglist,
+
             layout = wibox.layout.fixed.horizontal,
+            spacing = 11,
+        },
+        nil,
+        { -- Right widgets
+            kblayout,
+            performance,
+            values,
+            tray,
+            clock,
+
+            {
+                layout = wibox.layout.fixed.horizontal,
+            },
+
+            layout = wibox.layout.fixed.horizontal,
+            spacing = 11,
         },
         layout = wibox.layout.align.horizontal,
     }
     else
     s.topwibar:setup {
         { -- Left widgets
+            {
+                layout = wibox.layout.fixed.horizontal,
+            },
             s.ledtaglist,
 
-            spacing = 10,
-            spacing_widget = {
-                {
-                    forced_width = 12,
-                    shape         = gears.shape.partially_rounded_rect,
-                    color        = beautiful.light,
-                    widget       = wibox.widget.separator
-                },
-                valign = "center",
-                halign = "center",
-                widget = wibox.container.place,
-            },
             layout = wibox.layout.fixed.horizontal,
+            spacing = 11,
         },
-        { -- Middle widgets
+        nil,
+        { -- Right widgets
+            kblayout,
+            performance,
+            tray,
+            clock,
+
+            {
+                layout = wibox.layout.fixed.horizontal,
+            },
 
             layout = wibox.layout.fixed.horizontal,
+            spacing = 11,
         },
-        {
-            {
-                layout = wibox.layout.fixed.horizontal,
-            },
-            {
-                layout = wibox.layout.fixed.horizontal,
-            },
-            {
-                { -- Right widgets
-                    ledvolume,
-                    ledkeyboardlayout,
-                    ledcpu,
-                    ledmem,
-                    spacing = 12,
-                    spacing_widget = {
-                        {
-                            markup  = '|',
-                            widget = wibox.widget.textbox,
-                        },
-                        valign = "center",
-                        halign = "center",
-                        widget = wibox.container.place,
-                    },
-                    layout = wibox.layout.fixed.horizontal,
-                },
-                ledtextclock,
-                layout = wibox.layout.fixed.horizontal,
-            },
-            layout = wibox.layout.align.horizontal,
-        },
-        expand = "outside",
         layout = wibox.layout.align.horizontal,
     }
     end
+
 end)
 -- }}}
 
@@ -997,7 +1043,6 @@ awful.rules.rules = {
         instance = {
           "DTA",  -- Firefox addon DownThemAll.
           "copyq",  -- Includes session name in class.
-          "qalculate-qt",
           "pinentry",
         },
         class = {

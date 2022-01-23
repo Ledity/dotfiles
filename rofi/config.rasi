@@ -24,6 +24,7 @@ configuration {
 #window {
     background-color: @dark;
     border:           5;
+    border-radius:    5;
     border-color:     @accent;
     padding:          0px 0px 0px;
     width:            30%;

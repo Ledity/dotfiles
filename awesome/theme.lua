@@ -14,12 +14,14 @@ local theme = {}
 theme.font = "MesloLGS NF 11"
 theme.iconfont = "FontAwesome5 Free Solid 10"
 
+-- theme.dark    = "#10151a"
 theme.dark    = "#10151a"
-theme.lighter = "#141a21"
+theme.transparent = "#00000000"
+theme.lighter = "#1e2029"
 theme.light   = "#172a3d"
 
 theme.gray  = "#cecece"
-theme.sizy  = "#c2c6ca"
+theme.sizy  = "#6272a4"
 theme.white = "#ffffff"
 
 theme.red    = "#e25270"
@@ -35,10 +37,11 @@ theme.pink   = "#e252dc"
 
 -- Default colors
 
-theme.bg_normal   = theme.dark
+theme.bg_normal   = theme.transparent
 theme.bg_focus    = theme.blue
 theme.bg_urgent   = theme.red
 theme.bg_minimize = theme.lighter
+theme.bg_systray  = theme.dark
 
 theme.fg_normal   = theme.gray
 theme.fg_focus    = theme.white
@@ -56,20 +59,13 @@ theme.border_marked = theme.red
 
 -- Taglist
 
--- theme.taglist_bg_occupied = theme.yellow
--- theme.taglist_fg_occupied = theme.white
--- theme.taglist_bg_empty    = theme.light
--- theme.taglist_fg_empty    = theme.white
--- theme.taglist_bg_urgent   = theme.red
--- theme.taglist_fg_urgent   = theme.white
-
-theme.taglist_bg_focus    = theme.dark
+theme.taglist_bg_focus    = theme.transparent
 theme.taglist_fg_focus    = theme.blue
-theme.taglist_bg_occupied = theme.dark
+theme.taglist_bg_occupied = theme.transparent
 theme.taglist_fg_occupied = theme.yellow
-theme.taglist_bg_empty    = theme.dark
+theme.taglist_bg_empty    = theme.transparent
 theme.taglist_fg_empty    = theme.gray
-theme.taglist_bg_urgent   = theme.dark
+theme.taglist_bg_urgent   = theme.transparent
 theme.taglist_fg_urgent   = theme.red
 
 theme.tasklist_bg_focus    = theme.light

@@ -76,6 +76,9 @@ theme.tasklist_fg_normal   = theme.yellow
 theme.tasklist_bg_urgent   = theme.light
 theme.tasklist_fg_urgent   = theme.red
 
+theme.wibar_margins = 24
+theme.wibar_stretch = false
+
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:

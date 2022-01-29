@@ -107,14 +107,14 @@ editor_cmd = 'emacsclient -c -a "emacs"'
 -- Tag names
 
 t1 = "  "
-t2 = ""
-t3 = ""
-t4 = ""
-t5 = ""
-t6 = ""
-t7 = ""
-t8 = ""
-t9 = "  "
+t2 = "  "
+t3 = "  "
+t4 = "  "
+t5 = "  "
+t6 = "  "
+t7 = "  "
+t8 = "  "
+t9 = "    "
 
 -- Default modkey.
 modkey = "Mod4"
@@ -193,9 +193,9 @@ local ledbrightness = {
 
 -- Volume widget
 local vol_buttons = gears.table.join(
-                    awful.button({ }, 1, function()  awful.spawn(terminal .. " -e pulsemixer") end),
+                    awful.button({ }, 1, function()  awful.spawn(terminal .. " -t pulsemixer -e pulsemixer") end),
                     awful.button({ }, 2, function()  awful.spawn("pulsemixer --toggle-mute") end),
-                    awful.button({ }, 3, function()  awful.spawn(terminal .. " -e pulsemixer") end),
+                    awful.button({ }, 3, function()  awful.spawn(terminal .. " -t pulsemixer -e pulsemixer") end),
                     awful.button({ }, 4, function()  awful.spawn("pulsemixer --change-volume +5") end),
                     awful.button({ }, 5, function()  awful.spawn("pulsemixer --change-volume -5") end)
                 )
@@ -238,8 +238,8 @@ local ledkeyboardlayout = {
 
 -- CPU widget
 local cpu_buttons = gears.table.join(
-                    awful.button({ }, 1, function()  awful.spawn(terminal .. " -e htop", { floating = true }) end),
-                    awful.button({ }, 3, function()  awful.spawn(terminal .. " -e radeontop -c", { floating = true }) end)
+                    awful.button({ }, 1, function()  awful.spawn(terminal .. " -t htop -e htop", { floating = true }) end),
+                    awful.button({ }, 3, function()  awful.spawn(terminal .. " -t radeontop -e radeontop -c", { floating = true }) end)
                 )
 local ledcpu = wibox.widget {
     {
@@ -395,7 +395,7 @@ local clock = {
                 widget = wibox.widget.textbox,
             },
             {
-                format = '%d.%m.%Y ',
+                format = '%d %b, %a ',
                 widget = wibox.widget.textclock
             },
             layout = wibox.layout.fixed.horizontal,
@@ -522,7 +522,7 @@ awful.screen.connect_for_each_screen(function(s)
                 font = beautiful.iconfont,
             },
             layout  = {
-                spacing = 24,
+                -- spacing = 24,
                 layout  = wibox.layout.fixed.horizontal
             },
             widget_template = {
@@ -599,19 +599,24 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.topwibar = awful.wibar({ position = "top", height = 40, screen = s })
+    s.topwibar = awful.wibar {
+        position = "top",
+        height = 40,
+        screen = s,
+        margins = 24,
+        widget = {
+                kblayout,
+            },
+    }
 
     -- Add widgets to the wibox
     if s == screen[1] then
     s.topwibar:setup {
         { -- Left widgets
-            {
-                layout = wibox.layout.fixed.horizontal,
-            },
             s.ledtaglist,
 
             layout = wibox.layout.fixed.horizontal,
-            spacing = 11,
+            spacing = 12,
         },
         nil,
         { -- Right widgets
@@ -621,25 +626,18 @@ awful.screen.connect_for_each_screen(function(s)
             tray,
             clock,
 
-            {
-                layout = wibox.layout.fixed.horizontal,
-            },
-
             layout = wibox.layout.fixed.horizontal,
-            spacing = 11,
+            spacing = 12,
         },
         layout = wibox.layout.align.horizontal,
     }
     else
     s.topwibar:setup {
         { -- Left widgets
-            {
-                layout = wibox.layout.fixed.horizontal,
-            },
             s.ledtaglist,
 
             layout = wibox.layout.fixed.horizontal,
-            spacing = 11,
+            spacing = 12,
         },
         nil,
         { -- Right widgets
@@ -648,12 +646,8 @@ awful.screen.connect_for_each_screen(function(s)
             tray,
             clock,
 
-            {
-                layout = wibox.layout.fixed.horizontal,
-            },
-
             layout = wibox.layout.fixed.horizontal,
-            spacing = 11,
+            spacing = 12,
         },
         layout = wibox.layout.align.horizontal,
     }
@@ -1070,9 +1064,9 @@ awful.rules.rules = {
       }, properties = { floating = true }},
 
     -- Add titlebars to normal clients and dialogs
-    -- { rule_any = { type = { "normal", "dialog" }
-        -- }, properties = { titlebars_enabled = true }
-    -- },
+    { rule_any = { type = { "normal", "dialog" }
+        }, properties = { titlebars_enabled = true }
+    },
 
     -- Qalculate-Qt floating and above
     { rule_any = {
@@ -1116,32 +1110,30 @@ client.connect_signal("request::titlebars", function(c)
 	})
 
     rightbar : setup {
-        { -- Left
-            awful.titlebar.widget.iconwidget     (c),
-            awful.titlebar.widget.stickybutton   (c),
-            awful.titlebar.widget.floatingbutton (c),
-            buttons = buttons,
-            layout  = wibox.layout.fixed.vertical
-        },
-        { -- Middle
-            -- { -- Title
-                -- align  = "center",
-                -- widget = awful.titlebar.widget.titlewidget(c)
-            -- },
-            buttons = buttons,
-            layout  = wibox.layout.flex.vertical
-        },
-        { -- Right
-            {
-                awful.titlebar.widget.minimizebutton (c),
-                awful.titlebar.widget.maximizedbutton(c),
-                awful.titlebar.widget.closebutton    (c),
-                layout = wibox.layout.fixed.horizontal()
-            },
-            layout = wibox.layout.align.vertical
-        },
-        layout = wibox.layout.align.vertical,
-    }
+    { -- Left
+        awful.titlebar.widget.closebutton    (c),
+        awful.titlebar.widget.floatingbutton (c),
+        awful.titlebar.widget.maximizedbutton(c),
+
+        layout  = wibox.layout.fixed.vertical
+    },
+    { -- Middle
+        nil,
+        wibox.container.rotate (awful.titlebar.widget.titlewidget(c), "west"),
+        nil,
+
+        buttons = buttons,
+        layout = wibox.layout.align.vertical
+    },
+    { -- Right
+        awful.titlebar.widget.stickybutton   (c),
+        awful.titlebar.widget.ontopbutton    (c),
+
+        layout = wibox.layout.fixed.vertical()
+    },
+    layout = wibox.layout.align.vertical
+}
+
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.

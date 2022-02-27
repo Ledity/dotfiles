@@ -24,7 +24,7 @@
   # TERM: xterm-256color
 
 window:
-  opacity: 0.85
+  opacity: 1
   # Window dimensions (changes require restart)
   #
   # Number of lines/columns (not pixels) in the terminal. The number of columns
@@ -120,7 +120,7 @@ font:
     family: MesloLGS NF
     style: Bold Italic
 
-  size: 11.0
+  size: 10.5
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -348,7 +348,7 @@ schemes:
   brise: &brise
     primary:
       background: '#1a1c20'
-      foreground: '#ffffff'
+      foreground: '#dddddd'
 
 
   # Normal colors
@@ -357,9 +357,9 @@ schemes:
       red:        '#e25270'
       green:      '#52e258'
       yellow:     '#e2c552'
-      blue:       '#5294e2'
+      blue:       '#51afef'
       magenta:    '#e252dc'
-      cyan:       '#52e2c4'
+      cyan:       '#54ffff'
       white:      '#cecece'
 
   # Bright colors
@@ -396,7 +396,59 @@ schemes:
   ]
 
   # colors: *brise
-colors: *led
+  
+  doom: &doom-led
+    primary:
+      background: '#21242b'
+      foreground: '#bbc2cf'
+
+
+  # Normal colors
+    normal:
+      black:      '#282c34'
+      red:        '#e25270'
+      green:      '#52e258'
+      yellow:     '#e2c552'
+      blue:       '#51afef'
+      magenta:    '#e252dc'
+      cyan:       '#54ffff'
+      white:      '#cecece'
+
+  # Bright colors
+    bright:
+      black:      '#5b6268'
+      red:        '#ff5454'
+      green:      '#54ff54'
+      yellow:     '#ffff54'
+      blue:       '#5454ff'
+      magenta:    '#ff54ff'
+      cyan:       '#54ffff'
+      white:      '#ffffff'
+
+  # Cursor
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+
+  # Vi-mode cursor
+  vi_mode_cursor:
+    text: CellForeground
+    cursor: CellBackground
+
+  # Indexed Colors
+  #
+  # The indexed colors include all colors from 16 to 256.
+  # When these are not set, they're filled with sensible defaults.
+  #
+  # Example:
+  #   `- { index: 16, color: '#ff00ff' }`
+  #
+  indexed_colors: [
+      {index: 130, color: '#974932'}
+  ]
+
+  # colors: *doom-led
+colors: *brise
 
 # Bell
 #

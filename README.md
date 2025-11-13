@@ -6,7 +6,7 @@ Some of the configs are located in separate repositories and added here as submo
 
 + [Neovim config](https://github.com/Ledity/nvim-dotfiles.git)
 + [Fish config](https://github.com/Ledity/fish-dotfiles.git)
-+ [Helix config](httphttps://github.com/Ledity/helix-dotfiles.git)
++ [Helix config](https://github.com/Ledity/helix-dotfiles.git)
 
 ## How to deploy
 

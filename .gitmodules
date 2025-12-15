@@ -1,6 +1,9 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
-	url = git@github.com:/Ledity/nvim-dotfiles
+	url = https://github.com/Ledity/nvim-dotfiles.git
 [submodule ".config/fish"]
 	path = .config/fish
-	url = git@github.com:/Ledity/fish-dotfiles
+	url = https://github.com/Ledity/fish-dotfiles.git
+[submodule ".config/helix"]
+	path = .config/helix
+	url = https://github.com/Ledity/helix-dotfiles.git

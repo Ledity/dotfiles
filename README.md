@@ -14,14 +14,7 @@ submodules, including:
 To deploy my dotfiles you have to clone this repository.
 
 ```bash
-git clone https://github.com/Ledity/dotfiles.git $HOME/.dotfiles
-```
-
-Then, pull the submodules.
-
-```bash
-cd $HOME/.dotfiles
-git submodule update --init --recursive
+git clone http://github.com/Ledity/dotfiles.git $HOME/.dotfiles --recursive
 ```
 
 Now you have to create symlinks for all the files. You can do it by hand or 

@@ -14,7 +14,9 @@ submodules, including:
 To deploy my dotfiles you have to clone this repository.
 
 ```bash
-git clone http://github.com/Ledity/dotfiles.git $HOME/.dotfiles --recursive
+git clone http://github.com/Ledity/dotfiles.git \
+   $HOME/.dotfiles \
+  --recurse-submodules
 ```
 
 Now you have to create symlinks for all the files. You can do it by hand or 
@@ -23,13 +25,16 @@ can be found in your distro's repository.
 
 ```bash
 cd $HOME/.dotfiles
-stow .
+stow . --dotfiles
 ```
 
-It will smartly create symlinks for every file in your repository.
+It will smartly create symlinks for every file in your repository. `--dotfiles` 
+flag translates `dot-FILE` filenames to `.FILE`.
 
 Stow also gives you an ability to check, if the target directory already 
 contains the conflicting files with option `--simulate`. If the directory 
-already contains such files, delete them and run `stow .` again. It is 
+already contains such files, delete them and run `stow .` again. Make sure that 
+`~/.config` directory already exists, but non of `dot-configs` child directory 
+does. It is 
 recommended to switch to `bash` before doing that as fish might create a 
 default config directory after deleting an existing one.

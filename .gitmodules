@@ -7,3 +7,9 @@
 [submodule ".config/helix"]
 	path = dot-config/helix
 	url = https://github.com/Ledity/helix-dotfiles.git
+[submodule "nvim"]
+	path = nvim
+	url = https://github.com/Ledity/nvim-dotfiles
+[submodule "dot-config/nvim"]
+	path = dot-config/nvim
+	url = https://github.com/Ledity/nvim-dotfiles

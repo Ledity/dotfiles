@@ -35,6 +35,5 @@ Stow also gives you an ability to check, if the target directory already
 contains the conflicting files with option `--simulate`. If the directory 
 already contains such files, delete them and run `stow .` again. Make sure that 
 `~/.config` directory already exists, but non of `dot-configs` child directory 
-does. It is 
-recommended to switch to `bash` before doing that as fish might create a 
-default config directory after deleting an existing one.
+does. It is recommended to switch to `bash` before doing that as fish might 
+create a default config directory after deleting an existing one.
